@@ -1,53 +1,140 @@
 import React from "react";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// import required modules
+import { Autoplay, Pagination } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+
+const reviewData = [
+  {
+    id: 1,
+    client: "Rosie P. ",
+    imageUrl:
+      "https://i.pinimg.com/736x/0a/91/b0/0a91b016bf143fd5695fb0ac6e5947ce.jpg",
+    feedback:
+      " An harum accommodare ullamcorper, laoreet repudiare consetetur percipitur mel disputationi cum ex. Aliquid adipiscing delicatissimi.",
+  },
+  {
+    id: 2,
+    client: "David L. J. ",
+    imageUrl:
+      "https://images.unsplash.com/photo-1552234994-66ba234fd567?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+    feedback:
+      "Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at finibus viverra.",
+  },
+  {
+    id: 3,
+    client: "David L. J. ",
+    imageUrl:
+      "https://www.kpoptown.com/52967-large_default/exo-x-mlb-new-crew-original-one-point-curve-control-cap-navy.jpg",
+    feedback:
+      " Excellent property and very convenient to USC activities. Front desk staff is extremely efficient, pleasant and helpful. Property is clean and has a fantastic old time charm.",
+  },
+  {
+    id: 4,
+    client: "Karina Yu J.M",
+    imageUrl:
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgui_cy3Mf8JBF5gxS6262LSJosEBDN9ViYa6Qn5Fbxyr6Gv48wzdBV4UD7nhKDhtTg3JP4QyQORFL2uxUk1s-lenSEZpLaj7zld358I8LSOEQFItLzmOBtfngAssP5PzlD_d3gMag1YOqFQW6FuzLit-NxUOhOHn2867XCGh7Dn3PahE7tHqOL1n_elQ/s1800/048021f216e9235c76857f6b7adfcfb5.jpg",
+    feedback:
+      " They were extremely accommodating and allowed us to check in early. We got to hotel super early and I didn’t wanna wait. So this was a big plus. Would definitely recommend.",
+  },
+  {
+    id: 5,
+    client: "Winter Kim M. ",
+    imageUrl:
+      "https://i.pinimg.com/736x/39/bb/a3/39bba379d8e63be02b178b7a175d405b.jpg",
+    feedback:
+      " The best hotel I’ve ever been. Gorgeous building, and it only gets more breathtaking when you walk in. High quality rooms (there was even a tv by the shower). ",
+  },
+];
+
+const SliderComponent = () => {
+  return (
+    <>
+      <div className="mx-auto max-w-screen-xl px-4">
+        <Swiper
+          breakpoints={{
+            // when window width is >= 640px
+            640: {
+              width: 640,
+              slidesPerView: 2,
+            },
+            // when window width is >= 768px
+            1024: {
+              width: 1024,
+              slidesPerView: 3,
+            },
+          }}
+          className="text-base"
+          spaceBetween={50}
+          slidesPerView={1}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+        >
+          {reviewData.map((review) => {
+            return (
+              <SwiperSlide key={review.id}>
+                <div className="md:px-5 md:justify-between">
+                  {/* Image */}
+                  <div className="flex justify-center pb-6 ">
+                    <img
+                      src={review.imageUrl}
+                      alt={review.client}
+                      className=" rounded-full w-20 h-20 object-cover  "
+                    />
+                  </div>
+                  {/* Detail */}
+                  <div>
+                    <p className="px-4 text-center text-base text-opacity-100 pb-2 font-light text-beige font-subHeading italic">
+                      {review.feedback}
+                    </p>
+                    <p className=" text-beige text-opacity-70 text-sm text-center font-light pb-8">
+                      {review.client} - Client
+                    </p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+    </>
+  );
+};
+
 const Reviews = () => {
   return (
     <div>
       {/* Container */}
-      <div className=" max-w-screen-xl mx-auto ">
+      <div className=" max-w-screen-xl mx-auto py-4">
         {/* Layout */}
-        <div className=" -z-20 relative overflow-hidden bg-cover object-center bg-[url('https://bilurygallery.bithemer.com/assets/img/background/bg2.jpg')]">
-          <div className="absolute overflow-hidden top-0 right-0 left-0 bottom-0 h-full w-full bg-fixed bg-slate-900 opacity-70 -z-10"></div>
+        <div className="relative overflow-hidden bg-[url('https://bilurygallery.bithemer.com/assets/img/background/bg2.jpg')] bg-blend-overlay bg-gray-800/80 bg-cover object-center">
           {/* Content */}
-          <div className="p-4 mb-6">
+          <div className="px-2 my-6">
             {/* Reviews Section */}
-            <div>
+            <div className="">
               {/* Intro */}
               <h2 className="font-h2 text-2xl text-zinc-100 text-center pb-2">
                 What our clients say about us
               </h2>
-              <p className="font-subHeading text-beige text-base font-light text-center text-opacity-80 px-8 pb-8">
+              <p className="font-subHeading text-beige text-base font-light text-center text-opacity-80 px-8 pb-10">
                 Pro sonet consul maiorum ad. Delenit omittantur ne cum
                 gloriatur.
               </p>
             </div>
 
-
-
-            {/* Review */}
+            {/* Carousel */}
             <div>
-              {/* Image */}
-              <div className=" flex justify-center pb-6 ">
-                <img
-                  src="https://i.pinimg.com/736x/a8/9c/79/a89c79acc2ee8e6a27a9aee9e89e1cad.jpg"
-                  alt="client1"
-                  className=" rounded-full w-20 h-20 object-cover  "
-                />
-              </div>
-              {/* Detail */}
-              <div>
-                <p className="px-8 text-center text-base text-opacity-100 pb-2 font-light text-beige font-subHeading italic">
-                  An harum accommodare ullamcorper, laoreet repudiare consetetur
-                  percipitur mel disputationi cum ex. Aliquid adipiscing
-                  delicatissimi.
-                </p>
-                <p className=" text-beige text-opacity-70 text-sm text-center font-light">
-                  Rosie P. - Client
-                </p>
-              </div>
+              <SliderComponent />
+              {/* Review */}
             </div>
-
-            
           </div>
         </div>
       </div>
