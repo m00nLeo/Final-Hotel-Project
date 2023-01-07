@@ -33,9 +33,9 @@ const Navbar = () => {
     setMenu(!menu);
   };
   return (
-    <div className="relative mx-auto max-w-screen-xl p-4 bg-inherit text-black dark:text-white">
-      <div className="">
-        <div className="flex justify-between items-center ">
+    <div className="mx-auto p-4 fixed  w-full ">
+      <div className=" w-full p-4 bg-inherit text-black dark:text-white">
+        <div className=" flex justify-between items-center ">
           {/* Logo */}
           <div className="">
             <img
@@ -46,12 +46,12 @@ const Navbar = () => {
           </div>
 
           {/* Menu Drawer*/}
-          <div className="absolute w-11/12 h-full lg:hidden">
+          <div className="fixed w-11/12 lg:hidden">
             <input id="drawer" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content mb-2 flex flex-col items-end justify-center">
               <label
                 htmlFor="drawer"
-                className="border bg-amber-200 p-4 rounded-xl cursor-pointer hover:bg-amber-300"
+                className=" border bg-amber-200 p-4 rounded-xl cursor-pointer hover:bg-amber-300"
                 onClick={handleChange}
               >
                 <div className="" hidden={menu}>
@@ -62,9 +62,9 @@ const Navbar = () => {
                 </div>
               </label>
             </div>
-            <div className="drawer-side fixed	hidden w-full h-screen opacity-90">
+            <div className="drawer-side absolute w-full h-screen opacity-90">
               <label htmlFor="drawer" className="drawer-overlay"></label>
-              <ul className="menu p-4 w-80 bg-base-100 text-2xl">
+              <ul className="menu p-4 w-80 bg-base-100/75 text-2xl">
                 <NavMenu />
               </ul>
             </div>
