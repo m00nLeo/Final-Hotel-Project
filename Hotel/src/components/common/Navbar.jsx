@@ -32,9 +32,24 @@ const Navbar = () => {
   const handleChange = () => {
     setMenu(!menu);
   };
+
+  const [colorChange, setColorchange] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarColor);
+
   return (
-    <div className="mx-auto p-4 fixed  w-full ">
-      <div className=" w-full p-4 bg-inherit text-black dark:text-white">
+    <div
+      className={`mx-auto p-4 fixed text-black dark:text-white z-20 w-full ${
+        colorChange ? "bg-white dark:text-black" : ""
+      }`}
+    >
+      <div className=" w-full p-4 bg-inherit ">
         <div className=" flex justify-between items-center ">
           {/* Logo */}
           <div className="">
