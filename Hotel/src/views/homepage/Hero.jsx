@@ -54,7 +54,7 @@ const Hero = () => {
         {BackgroundImg.map((img) => (
           <SwiperSlide key={img.id}>
             <div className="relative h-screen">
-              <div className="absolute inset-0 bg-black opacity-60">
+              <div className="absolute inset-0 bg-black opacity-950 dark:opacity-60">
                 <img src={img.imageUrl} className="w-full h-full" />
               </div>
             </div>
@@ -66,8 +66,8 @@ const Hero = () => {
       <Container>
         <section className="absolute -translate-y-full z-10 h-screen flex flex-col justify-center px-6 ">
           <div className="max-w-3xl mb-8">
-            <h2 className="text-5xl mb-8 text-slate-200">ELYSIA Hotel</h2>
-            <p className="text-base text-justify text-gray-300 font-normal">
+            <h2 className="text-5xl mb-8 text-white dark:text-slate-200">ELYSIA Hotel</h2>
+            <p className="text-base text-justify text-stone-100 dark:text-gray-300 font-normal">
               In the heart of Saigonian "cultural bustle", indulge yourself in
               the Romantic’s Art of Living in the enchanted setting of the
               Elysia boutique hotel. Luxury, beauty and culture are the
@@ -77,7 +77,7 @@ const Hero = () => {
               designed to ensure you enjoy an extraordinary experience.
             </p>
           </div>
-          <div className="border border-white font-semibold hover:bg-white hover:text-black w-fit">
+          <div className="border border-white text-white font-semibold hover:bg-white hover:text-black w-fit">
             <Link to="" className="flex gap-4 items-center px-4 py-2">
               Read more
               <span>
