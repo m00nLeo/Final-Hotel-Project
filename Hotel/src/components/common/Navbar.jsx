@@ -3,29 +3,26 @@ import { AiOutlineMenu, AiOutlineMenuFold } from "react-icons/ai";
 import { SiAerlingus } from "react-icons/si";
 import { Link } from "react-router-dom";
 
-const NavMenu = () => {
+const NavMenu = ({ className }) => {
   return (
     <>
       <li>
-        <Link to="" className="hover:bg-gray-800 hover:bg-opacity-75">
+        <Link to="" className={className}>
           Home
         </Link>
       </li>
       <li>
-        <Link to="" className="hover:bg-gray-800 hover:bg-opacity-75">
+        <Link to="" className={className}>
           Rooms & Suites
         </Link>
       </li>
       <li>
-        <Link to="" className="hover:bg-gray-800 hover:bg-opacity-75">
+        <Link to="" className={className}>
           Contact
         </Link>
       </li>
       <li className="lg:bg-yellow-600 rounded lg:p-2">
-        <Link
-          to=""
-          className="flex gap-2 items-center hover:bg-gray-800 hover:bg-opacity-75"
-        >
+        <Link to="" className={`${className} flex gap-2 items-center`}>
           <span className="hidden lg:flex">
             <SiAerlingus />
           </span>{" "}
@@ -90,7 +87,7 @@ const Navbar = () => {
             <div className="drawer-side pt-9 -translate-x-10 absolute w-screen h-96 opacity-90">
               <label htmlFor="drawer" className="drawer-overlay"></label>
               <ul className="menu py-4 px-10 w-96 bg-black/75 text-2xl">
-                <NavMenu />
+                <NavMenu className="hover:bg-gray-800 hover:bg-opacity-75" />
               </ul>
             </div>
           </div>
