@@ -45,8 +45,8 @@ const Navbar = () => {
 
   return (
     <div
-      className={`mx-auto p-4 fixed text-black dark:text-white z-20 w-full ${
-        colorChange ? "bg-white dark:text-black" : ""
+      className={`mx-auto p-4 lg:px-28 fixed text-black dark:text-white z-20 w-full ${
+        colorChange ? "bg-white lg:dark:text-black" : ""
       }`}
     >
       <div className=" w-full p-4 bg-inherit ">
@@ -63,10 +63,10 @@ const Navbar = () => {
           {/* Menu Drawer*/}
           <div className="fixed w-11/12 lg:hidden">
             <input id="drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content mb-2 flex flex-col items-end justify-center">
+            <div className="drawer-content flex flex-col items-end justify-center">
               <label
                 htmlFor="drawer"
-                className=" border bg-amber-200 p-4 rounded-xl cursor-pointer hover:bg-amber-300"
+                className="border bg-amber-200 p-4 rounded-xl cursor-pointer hover:bg-amber-300"
                 onClick={handleChange}
               >
                 <div className="" hidden={menu}>
@@ -77,9 +77,9 @@ const Navbar = () => {
                 </div>
               </label>
             </div>
-            <div className="drawer-side absolute w-full h-screen opacity-90">
+            <div className="drawer-side pt-9 -translate-x-10 absolute w-screen h-screen opacity-90">
               <label htmlFor="drawer" className="drawer-overlay"></label>
-              <ul className="menu p-4 w-80 bg-base-100/75 text-2xl">
+              <ul className="menu p-4 w-80 bg-black/75 text-2xl">
                 <NavMenu />
               </ul>
             </div>
