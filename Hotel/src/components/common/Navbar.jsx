@@ -1,26 +1,36 @@
 import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineMenuFold } from "react-icons/ai";
 import { SiAerlingus } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 const NavMenu = () => {
   return (
     <>
       <li>
-        <a href="#">Home</a>
+        <Link to="" className="hover:bg-gray-800 hover:bg-opacity-75">
+          Home
+        </Link>
       </li>
       <li>
-        <a href="#">Rooms & Suites</a>
+        <Link to="" className="hover:bg-gray-800 hover:bg-opacity-75">
+          Rooms & Suites
+        </Link>
       </li>
       <li>
-        <a href="#">Contact</a>
+        <Link to="" className="hover:bg-gray-800 hover:bg-opacity-75">
+          Contact
+        </Link>
       </li>
       <li className="lg:bg-yellow-600 rounded lg:p-2">
-        <a href="#" className="flex gap-2 items-center">
+        <Link
+          to=""
+          className="flex gap-2 items-center hover:bg-gray-800 hover:bg-opacity-75"
+        >
           <span className="hidden lg:flex">
             <SiAerlingus />
           </span>{" "}
           Booking
-        </a>
+        </Link>
       </li>
     </>
   );
@@ -45,7 +55,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`mx-auto p-4 lg:px-28 fixed text-black dark:text-white z-20 w-full ${
+      className={`mx-auto p-4 lg:px-28 fixed text-white z-20 w-full ${
         colorChange ? "bg-white lg:dark:text-black" : ""
       }`}
     >
@@ -66,20 +76,20 @@ const Navbar = () => {
             <div className="drawer-content flex flex-col items-end justify-center">
               <label
                 htmlFor="drawer"
-                className="border bg-amber-200 p-4 rounded-xl cursor-pointer hover:bg-amber-300"
+                className="bg-amber-300 p-4 rounded-xl cursor-pointer hover:bg-amber-400/75"
                 onClick={handleChange}
               >
                 <div className="" hidden={menu}>
-                  <AiOutlineMenu />
+                  <AiOutlineMenuFold />
                 </div>
                 <div className="" hidden={!menu}>
-                  <AiOutlineMenuFold />
+                  <AiOutlineMenu />
                 </div>
               </label>
             </div>
-            <div className="drawer-side pt-9 -translate-x-10 absolute w-screen h-screen opacity-90">
+            <div className="drawer-side pt-9 -translate-x-10 absolute w-screen h-96 opacity-90">
               <label htmlFor="drawer" className="drawer-overlay"></label>
-              <ul className="menu p-4 w-80 bg-black/75 text-2xl">
+              <ul className="menu py-4 px-10 w-96 bg-black/75 text-2xl">
                 <NavMenu />
               </ul>
             </div>
