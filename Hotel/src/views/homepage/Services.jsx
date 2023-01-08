@@ -1,3 +1,4 @@
+
 import React from "react";
 import { FaCarAlt, FaSwimmingPool } from "react-icons/fa";
 import { BiDish } from "react-icons/bi";
@@ -145,5 +146,11 @@ const Services = () => {
     </div>
   );
 };
+
+
+const Services = () => {
+  return <div>Services</div>;
+};
+
 
 export default Services;
