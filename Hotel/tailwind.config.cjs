@@ -13,7 +13,9 @@ module.exports = {
       colors: {
         primary: "#343a40",
         light: "#987648",
+
         beige: "#f8f5f0",
+
       },
     },
   },
