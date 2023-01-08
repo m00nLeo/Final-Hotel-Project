@@ -1,18 +1,38 @@
 import React from "react";
-import { CiLocationOn, CiPhone } from "react-icons/ci";
-import { MdOutlineMail } from "react-icons/md";
-import { FaFacebookF, FaTiktok } from "react-icons/fa";
-import { BsTwitter } from "react-icons/bs";
-import { SiZalo } from "react-icons/si";
-import { AiOutlineGoogle, AiOutlineArrowRight } from "react-icons/ai";
-import { BiCopyright } from "react-icons/bi";
-import { TbWorld } from "react-icons/tb";
+import { CiLocationOn } from "react-icons/ci";
+import { FaTiktok } from "react-icons/fa";
+import {
+  BsTwitter,
+  BsInstagram,
+  BsFacebook,
+  BsTelephone,
+} from "react-icons/bs";
+import {
+  AiOutlineYoutube,
+  AiOutlineArrowRight,
+  AiOutlineMail,
+} from "react-icons/ai";
+import { BiCopyright, BiWorld } from "react-icons/bi";
+import Container from "./Container";
+import { Link } from "react-router-dom";
+
+const QuickLinkList = ({ title, id }) => {
+  return (
+    <li className="mb-3 w-40">
+      <Link className="hover:text-gray-400" to={id}>
+        {title}
+      </Link>
+    </li>
+  );
+};
 
 const Footer = () => {
   return (
-    <div className="bg-black ">
-      <div className="mx-auto max-w-screen-xl pl-4 pt-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-between mb-8 ">
+    <div className="bg-[#222222] pt-16 px-2 text-white">
+      <Container fluid={true}>
+        {/* Layout */}
+        <div className=" grid md:grid-cols-2 lg:grid-cols-4 gap-8 justify-between mb-8 ">
+          {/* Short about */}
           <div className="">
             <img
               className="w-full h-16 mb-4"
@@ -20,13 +40,16 @@ const Footer = () => {
               alt=""
             />
 
-            <p className="mb-4 text-md text-gray-500">
-              The hotel has a new look and feel. Spacious lobby and warm
-              welcome. Staff were knowledgeable. It is near Ben Thanh Market and
-              other attractions which is valued for money.
+            <p className="mb-4 text-base text-gray-500">
+              Immerse yourself in the abstract art and romantic feelings of
+              Paris right in the heart of Saigon
             </p>
-            <div className="flex items-center text-white gap-3 ">
-              <a href="" className="text-base hover:text-gray-400 flex items-center gap-2">
+
+            <div className="flex items-center  gap-3 ">
+              <a
+                href=""
+                className="text-base hover:text-gray-400 flex items-center gap-2"
+              >
                 Read More
                 <span>
                   <AiOutlineArrowRight />
@@ -34,126 +57,89 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div>
-            <h1 className="mt-4 text-white  mb-6 text-3xl">Contact Info</h1>
+
+          {/* Contact info */}
+          <div className="pt-4">
+            <h1 className=" text-3xl mb-7">Contact Info</h1>
             <ul>
               <li className="items-center mb-4 text-gray-500 flex gap-2">
                 <span className="">
                   <CiLocationOn />
                 </span>
-                <p>202 Hoang Van Thu, Ward 9, District 1, Ho Chi Minh City.</p>
+                <p className="text-base">
+                  202 Hoang Van Thu, Ward 9, District 1, Ho Chi Minh City.
+                </p>
               </li>
               <li className="items-center mb-4 text-md text-gray-500 flex gap-2 ">
-                <CiPhone />
+                <BsTelephone />
                 +81(0) 968150014
               </li>
-              <li className=" items-center gap-3 text-white mb-4 flex">
-                <MdOutlineMail />
-                <a className="hover:text-gray-400" href="">
-                  {" "}
-                  Booking@example.com
+              <li className=" items-center gap-3  mb-4 flex">
+                <AiOutlineMail />
+                <a
+                  classname="hover:text-gray-400"
+                  href="mailto:customer.helpdesk@elysia.com"
+                >
+                  customer.helpdesk@elysia.com
                 </a>
               </li>
-              <li className=" items-center gap-3 mt-3 mb-3 text-white flex">
-                <TbWorld />
-                <a className="hover:text-gray-400" href="">
-                  www.bilurygalleryhotel.com
+              <li className=" items-center gap-3  flex">
+                <BiWorld />
+                <a
+                  className="hover:text-gray-400"
+                  href="http://www.theelysiahotel.com"
+                >
+                  www.theelysiahotel.com
                 </a>
               </li>
             </ul>
           </div>
-          <div className="">
-            <h1 className="text-white mt-4 mb-3 text-3xl ">Quick Links</h1>
-            <div className="flex gap-10 text-white">
-              <ul className="mb-3 ">
-                <li className="mb-3 mt-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    Bilury's Story
-                  </a>
-                </li>
-                <li className="mb-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    Team
-                  </a>
-                </li>
-                <li className="mb-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    News
-                  </a>
-                </li>
-                <li className="mb-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    Gallery
-                  </a>
-                </li>
-                <li className="mb-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    Contact Us
-                  </a>
-                </li>
+
+          {/* Quick links */}
+          <div className="pt-5">
+            <h1 className="mb-4 text-3xl">Quick Links</h1>
+            <div className="flex justify-between pt-2">
+              <ul className="">
+                <QuickLinkList title="Elysia's Story" />
+                <QuickLinkList title="About" />
+                <QuickLinkList title="Rooms & Suites" />
               </ul>
               <ul>
-                <li className="mb-3 mt-3  ">
-                  <a className="hover:text-gray-400" href="">
-                    Rooms & Suites
-                  </a>
-                </li>
-                <li className="mb-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    Spa
-                  </a>
-                </li>
-                <li className="mb-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    Restaurant
-                  </a>
-                </li>
-                <li className="mb-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    Tours
-                  </a>
-                </li>
-                <li className="mb-3 ">
-                  <a className="hover:text-gray-400" href="">
-                    Extra Services
-                  </a>
-                </li>
+                <QuickLinkList title="Reservation" />
+                <QuickLinkList title="Contact Us" />
               </ul>
             </div>
           </div>
-          <div className="lg:flex gap-4 flex-col">
+
+          {/* Subscribe */}
+          <div className="lg:flex gap-4 flex-col md:pt-4">
             <div className="mb-4">
-              <h1 className=" text-white mb-4 mt-4 text-3xl">Subscribe</h1>
-              <div className="flex ">
+              <h1 className="mb-4 text-3xl">Subscribe</h1>
+              <div className="flex pt-4">
                 <input
-                  className="outline-none py-2 px-4 w-40"
+                  className="outline-none bg-white py-2 px-4 w-full"
                   text="input"
                   placeholder="Your Email"
                 />
-                <button
-                  className="bg-[#B18C57]  py-2 px-4 text-white"
-                  value="submit"
-                >
+                <button className="bg-[#B18C57]  py-2 px-4 " value="submit">
                   Submit
                 </button>
               </div>
             </div>
-            <div className=" text-xl text-gray-500 ">
-              <h1>Connect social</h1>
-              <div className="flex mt-4 items-center font-semibold gap-4  text-base">
+            <div className="text-gray-500 ">
+              <h1 className="mb-4 text-2xl ">Connect social</h1>
+              <div className="flex items-center font-semibold gap-4 text-base">
                 <a className="hover:text-gray-100" href="">
-                  {" "}
-                  <FaFacebookF />
+                  <BsFacebook />
                 </a>
                 <a className="hover:text-gray-100" href="">
                   <BsTwitter />
                 </a>
                 <a className="hover:text-gray-100" href="">
-                  {" "}
-                  <SiZalo />
+                  <BsInstagram />
                 </a>
                 <a className="hover:text-gray-100" href="">
-                  <AiOutlineGoogle />
+                  <AiOutlineYoutube />
                 </a>
                 <a className="hover:text-gray-100" href="">
                   <FaTiktok />
@@ -162,30 +148,23 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <hr />
-        <div className="flex py-8 flex-col lg:flex-row justify-between p-3 text-gray-300 text-between ">
-          <p className=" flex items-center text-base text-gray-400">
+
+        {/* Copyright */}
+        <div className="flex py-4 gap-8 flex-col md:flex-row justify-between text-gray-300">
+          <p className="flex items-center gap-2 text-base text-gray-400">
             <span>
               <BiCopyright />
             </span>
             2023 Elysia Holtel. All right reserved.
           </p>
-          <div className="">
-            <ul className="flex flex-row gap-10 text-white">
-              <li>
-                <a className="hover:text-gray-400" href="">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a className="hover:text-gray-400" href="">
-                  Terms of Use{" "}
-                </a>
-              </li>
-            </ul>
-          </div>
+          <ul className="flex text-right">
+            <QuickLinkList title="Privacy Policy" />
+            <QuickLinkList title="Terms of Use" />
+          </ul>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };
