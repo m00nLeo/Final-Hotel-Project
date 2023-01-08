@@ -69,22 +69,27 @@ const Navbar = () => {
 
           {/* Menu Drawer*/}
           <div className="fixed w-11/12 lg:hidden">
-            <input id="drawer" type="checkbox" className="drawer-toggle" />
+            <input
+              id="drawer"
+              type="checkbox"
+              className={`${menu ? "drawer-toggle" : "hidden"}`}
+              // hidden={true}
+            />
             <div className="drawer-content flex flex-col items-end justify-center">
               <label
                 htmlFor="drawer"
                 className="bg-amber-300 p-4 rounded-xl cursor-pointer hover:bg-amber-400/75"
                 onClick={handleChange}
               >
-                <div className="" hidden={menu}>
+                <div className="" hidden={!menu}>
                   <AiOutlineMenuFold />
                 </div>
-                <div className="" hidden={!menu}>
+                <div className="" hidden={menu}>
                   <AiOutlineMenu />
                 </div>
               </label>
             </div>
-            <div className="drawer-side pt-9 -translate-x-10 absolute w-screen h-96 opacity-90">
+            <div className={`drawer-side pt-9 -translate-x-10 absolute w-screen h-screen opacity-90 ${menu ? "" : "hidden"}`}>
               <label htmlFor="drawer" className="drawer-overlay"></label>
               <ul className="menu py-4 px-10 w-96 bg-black/75 text-2xl">
                 <NavMenu className="hover:bg-gray-800 hover:bg-opacity-75" />
