@@ -159,7 +159,7 @@ const Footer = () => {
             </span>
             2023 Elysia Holtel. All right reserved.
           </p>
-          <ul className="flex text-right">
+          <ul className="flex md:text-right">
             <QuickLinkList title="Privacy Policy" />
             <QuickLinkList title="Terms of Use" />
           </ul>
