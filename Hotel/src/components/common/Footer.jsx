@@ -77,7 +77,7 @@ const Footer = () => {
               <li className=" items-center gap-3  mb-4 flex">
                 <AiOutlineMail />
                 <a
-                  classname="hover:text-gray-400"
+                  className="hover:text-gray-400"
                   href="mailto:customer.helpdesk@elysia.com"
                 >
                   customer.helpdesk@elysia.com
