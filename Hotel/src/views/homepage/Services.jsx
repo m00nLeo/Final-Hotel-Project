@@ -12,8 +12,8 @@ const ServicesList = ({ icon, header, para }) => {
         <div className="text-4xl">{icon}</div>
       </div>
       <div className="ml-2">
-        <h3 className="text-xl text-primary font-h2 pb-2">{header}</h3>
-        <p className="text-primary  font-subHeading text-base font-extralight pb-4">
+        <h3 className="text-xl text-primary dark:text-light font-h2 pb-2">{header}</h3>
+        <p className="text-primary dark:text-gray-400 font-subHeading text-base font-extralight pb-4">
           {para}
         </p>
       </div>
@@ -32,10 +32,10 @@ const Services = () => {
 
           <div className="pb-4">
             {/* Section Heading & Intro */}
-            <h2 className="text-3xl lg:text-5xl font-h2 pb-2 text-primary text-center ">
+            <h2 className="text-3xl lg:text-5xl font-h2 pb-2 text-primary dark:text-white text-center ">
               Facilities & Services
             </h2>
-            <p className="text-xl text-center font-subHeading text-primary font-extralight pb-10">
+            <p className="text-xl text-center font-subHeading text-primary dark:text-gray-400 font-extralight pb-10">
               Scriptorem per nibh euripidis usu. Magna feugiat in nec.
             </p>
           </div>
