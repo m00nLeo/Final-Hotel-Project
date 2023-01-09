@@ -13,8 +13,8 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { BiCopyright, BiWorld } from "react-icons/bi";
-import Container from "./Container";
 import { Link } from "react-router-dom";
+import Container from "./Container";
 
 const QuickLinkList = ({ title, id }) => {
   return (
