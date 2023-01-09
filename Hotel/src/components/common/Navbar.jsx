@@ -53,7 +53,7 @@ const Navbar = () => {
   return (
     <div
       className={`mx-auto p-4 lg:px-28 fixed text-white z-20 w-full ${
-        colorChange ? "bg-white lg:dark:text-black" : ""
+        colorChange ? "bg-white lg:text-black" : ""
       }`}
     >
       <div className=" w-full p-4 bg-inherit ">
