@@ -1,4 +1,6 @@
 import React from "react";
+
+const Footer = () => {
 import { CiLocationOn } from "react-icons/ci";
 import { FaTiktok } from "react-icons/fa";
 import {
