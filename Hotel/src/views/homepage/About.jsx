@@ -21,9 +21,9 @@ const About = () => {
           />
         </div>
         <div className="text-[#343a40] tracking-wide flex flex-col justify-center">
-          <h3 className="mb-4 font-light text-lg">Welcome to</h3>
-          <h1 className="mb-6 font-semibold text-2xl lg:text-4xl font-h2">ELYSIA HOTEL</h1>
-          <p className="text-base lg:text-lg mb-6 font-light">
+          <h3 className="mb-4 font-light text-lg dark:text-gray-300/75">Welcome to</h3>
+          <h1 className="mb-6 font-semibold text-2xl lg:text-4xl font-h2 dark:text-[#b18c57]">ELYSIA HOTEL</h1>
+          <p className="text-base lg:text-lg mb-6 font-light dark:text-gray-400">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid
             ipsum nobis facilis officiis, sit id! Corporis eum doloribus a
             ipsum, similique aperiam natus assumenda. Nam, iste! Unde quos
