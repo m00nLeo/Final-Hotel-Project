@@ -9,6 +9,7 @@ import { Autoplay, Pagination } from "swiper";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import Container from "../../components/common/Container";
 
 const reviewData = [
   {
@@ -18,22 +19,6 @@ const reviewData = [
       "https://i.pinimg.com/736x/0a/91/b0/0a91b016bf143fd5695fb0ac6e5947ce.jpg",
     feedback:
       " An harum accommodare ullamcorper, laoreet repudiare consetetur percipitur mel disputationi cum ex. Aliquid adipiscing delicatissimi.",
-  },
-  {
-    id: 2,
-    client: "David L. J. ",
-    imageUrl:
-      "https://images.unsplash.com/photo-1552234994-66ba234fd567?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    feedback:
-      "Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at finibus viverra.",
-  },
-  {
-    id: 3,
-    client: "David L. J. ",
-    imageUrl:
-      "https://www.kpoptown.com/52967-large_default/exo-x-mlb-new-crew-original-one-point-curve-control-cap-navy.jpg",
-    feedback:
-      " Excellent property and very convenient to USC activities. Front desk staff is extremely efficient, pleasant and helpful. Property is clean and has a fantastic old time charm.",
   },
   {
     id: 4,
@@ -51,12 +36,28 @@ const reviewData = [
     feedback:
       " The best hotel I’ve ever been. Gorgeous building, and it only gets more breathtaking when you walk in. High quality rooms (there was even a tv by the shower). ",
   },
+  {
+    id: 2,
+    client: "David L. J. ",
+    imageUrl:
+      "https://images.unsplash.com/photo-1552234994-66ba234fd567?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+    feedback:
+      "Hotel dapibus asue metus the nec feusiate eraten miss hendreri net ve ante the lemon sanleo nectan feugiat erat hendrerit necuis ve ante otel inilla duiman at finibus viverra.",
+  },
+  {
+    id: 3,
+    client: "David L. J. ",
+    imageUrl:
+      "https://www.kpoptown.com/52967-large_default/exo-x-mlb-new-crew-original-one-point-curve-control-cap-navy.jpg",
+    feedback:
+      " Excellent property and very convenient to USC activities. Front desk staff is extremely efficient, pleasant and helpful. Property is clean and has a fantastic old time charm.",
+  },
 ];
 
 const SliderComponent = () => {
   return (
     <>
-      <div className="mx-auto max-w-screen-xl px-4">
+      <Container fluid={true}>
         <Swiper
           breakpoints={{
             // when window width is >= 640px
@@ -76,26 +77,30 @@ const SliderComponent = () => {
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]}
+          autoplay={{
+            delay: 10000,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay, Pagination]}
         >
           {reviewData.map((review) => {
             return (
               <SwiperSlide key={review.id}>
-                <div className="md:px-5 md:justify-between">
+                <div className="md:px-4 md:justify-between md:w-80 lg:w-96">
                   {/* Image */}
                   <div className="flex justify-center pb-6 ">
                     <img
                       src={review.imageUrl}
                       alt={review.client}
-                      className=" rounded-full w-20 h-20 object-cover  "
+                      className="rounded-full w-20 h-20 object-cover"
                     />
                   </div>
                   {/* Detail */}
                   <div>
-                    <p className="px-4 text-center text-base text-opacity-100 pb-2 font-light text-beige font-subHeading italic">
+                    <p className="px-4 text-center text-base text-opacity-100 mb-4 font-light text-beige font-subHeading italic">
                       {review.feedback}
                     </p>
-                    <p className=" text-beige text-opacity-70 text-sm text-center font-light pb-8">
+                    <p className="text-beige text-opacity-70 text-sm text-center font-light mb-20">
                       {review.client} - Client
                     </p>
                   </div>
@@ -104,7 +109,7 @@ const SliderComponent = () => {
             );
           })}
         </Swiper>
-      </div>
+      </Container>
     </>
   );
 };
@@ -113,18 +118,18 @@ const Reviews = () => {
   return (
     <div>
       {/* Container */}
-      <div className=" max-w-screen-xl mx-auto py-4">
+      <div className="">
         {/* Layout */}
         <div className="relative overflow-hidden bg-[url('https://bilurygallery.bithemer.com/assets/img/background/bg2.jpg')] bg-blend-overlay bg-gray-800/80 bg-cover object-center">
           {/* Content */}
-          <div className="px-2 my-6">
+          <div className="px-2 py-16">
             {/* Reviews Section */}
             <div className="">
               {/* Intro */}
-              <h2 className="font-h2 text-2xl text-zinc-100 text-center pb-2">
+              <h2 className="font-h2 text-2xl lg:text-4xl text-zinc-100 text-center mb-2">
                 What our clients say about us
               </h2>
-              <p className="font-subHeading text-beige text-base font-light text-center text-opacity-80 px-8 pb-10">
+              <p className="font-subHeading text-beige text-base lg:text-xl font-light text-center text-opacity-80 px-8 mb-16">
                 Pro sonet consul maiorum ad. Delenit omittantur ne cum
                 gloriatur.
               </p>
