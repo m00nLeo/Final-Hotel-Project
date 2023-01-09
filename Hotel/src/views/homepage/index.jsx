@@ -4,7 +4,7 @@ import Hero from "./Hero";
 import Location from "./Location";
 import Reviews from "./Reviews";
 import RoomsAndSuites from "./RoomsAndSuites";
-import Services from "./Services";
+// import Services from "./Services";
 
 const Home = () => {
   return (
