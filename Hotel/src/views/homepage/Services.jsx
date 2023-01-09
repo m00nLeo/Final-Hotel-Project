@@ -23,7 +23,7 @@ const ServicesList = ({ icon, header, para }) => {
 
 const Services = () => {
   return (
-    <div className="mb-4">
+    <div className="mb-10">
       {/* Container */}
       <Container fluid={true}>
         {/* Layout */}
