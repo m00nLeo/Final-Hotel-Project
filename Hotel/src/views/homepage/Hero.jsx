@@ -7,9 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 // import required modules
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay, Pagination, Scrollbar } from "swiper";
 import { Link } from "react-router-dom";
 
 const BackgroundImg = [
@@ -45,17 +46,20 @@ const Hero = () => {
         pagination={{
           dynamicBullets: true,
         }}
+        scrollbar={{
+          hide: false,
+        }}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Pagination, Scrollbar]}
       >
         {BackgroundImg.map((img) => (
           <SwiperSlide key={img.id}>
             <div className="relative h-screen">
-              <div className="absolute inset-0 bg-black opacity-950 dark:opacity-60">
-                <img src={img.imageUrl} className="w-full h-full" />
+              <div className="absolute inset-0 opacity-95 dark:opacity-60">
+                <img src={img.imageUrl} className="object-cover w-full h-full" />
               </div>
             </div>
           </SwiperSlide>
@@ -66,7 +70,9 @@ const Hero = () => {
       <Container>
         <section className="absolute -translate-y-full z-10 h-screen flex flex-col justify-center px-6 ">
           <div className="max-w-3xl mb-8">
-            <h2 className="text-5xl mb-8 text-white dark:text-slate-200">ELYSIA Hotel</h2>
+            <h2 className="text-5xl mb-8 text-white dark:text-slate-200">
+              ELYSIA Hotel
+            </h2>
             <p className="text-base text-justify text-stone-100 dark:text-gray-300 font-normal">
               In the heart of Saigonian "cultural bustle", indulge yourself in
               the Romantic’s Art of Living in the enchanted setting of the
