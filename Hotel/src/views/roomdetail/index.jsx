@@ -1,7 +1,8 @@
 import React from "react";
-import Email from "./Email";
+import RoomsAndSuites from "../homepage/RoomsAndSuites";
+import RoomInformation from "./RoomInformation";
 
-const Contact = () => {
+const RoomDetail = () => {
   return (
     <div>
       {/* Container */}
@@ -9,11 +10,12 @@ const Contact = () => {
         {/* Layout */}
         <div className="">
           {/* Content */}
-          <Email />
+          <RoomInformation />
+          <RoomsAndSuites />
         </div>
       </div>
     </div>
   );
 };
 
-export default Contact;
+export default RoomDetail;
