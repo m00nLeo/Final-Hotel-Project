@@ -4,6 +4,7 @@ import Home from "../views/homepage";
 import Rooms from "../views/rooms";
 import Contact from "../views/contact";
 import Reservation from "../views/reservation";
+import RoomDetail from "../views/roomdetail";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/roomdetail",
+        element: <RoomDetail />,
       },
       {
         path: "/reservation",
