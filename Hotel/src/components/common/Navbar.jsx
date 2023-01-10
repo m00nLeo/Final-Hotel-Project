@@ -2,31 +2,45 @@ import React, { useState } from "react";
 import { AiOutlineMenu, AiOutlineMenuFold } from "react-icons/ai";
 import { SiAerlingus } from "react-icons/si";
 import { Link } from "react-router-dom";
+import Container from "./Container";
 
 const NavMenu = ({ className }) => {
   return (
     <>
       <li>
-        <Link to="" className={className}>
+        <Link to="/" className={className}>
           Home
         </Link>
       </li>
       <li>
-        <Link to="" className={className}>
+        <a href="#about" className={className}>
+          About
+        </a>
+      </li>
+      <li>
+        <Link to="/rooms" className={className}>
           Rooms & Suites
         </Link>
       </li>
       <li>
-        <Link to="" className={className}>
+        <a href="#services" className={className}>
+          Services
+        </a>
+      </li>
+      <li>
+        <Link to="/contact" className={className}>
           Contact
         </Link>
       </li>
-      <li className="lg:bg-yellow-600 rounded lg:p-2">
-        <Link to="" className={`${className} flex gap-2 items-center`}>
+      <li className="lg:bg-[#b18c57] rounded lg:px-3 lg:py-2">
+        <Link
+          to="/reservation"
+          className={`${className} flex gap-2 items-center text-white hover:text-white`}
+        >
           <span className="hidden lg:flex">
             <SiAerlingus />
           </span>{" "}
-          Booking
+          Reservation
         </Link>
       </li>
     </>
@@ -52,12 +66,12 @@ const Navbar = () => {
 
   return (
     <div
-      className={`mx-auto p-4 lg:px-28 fixed text-white z-20 w-full ${
-        colorChange ? "bg-white lg:text-black" : ""
+      className={`mx-auto px-4 py-2 lg:px-28 fixed text-white z-20 w-full font-subHeading ${
+        colorChange ? "bg-white bg-opacity-80 lg:text-black" : ""
       }`}
     >
-      <div className=" w-full p-4 bg-inherit ">
-        <div className=" flex justify-between items-center ">
+      <Container>
+        <div className=" flex justify-between items-center py-4 gap-x-4">
           {/* Logo */}
           <div className="">
             <img
@@ -72,13 +86,12 @@ const Navbar = () => {
             <input
               id="drawer"
               type="checkbox"
-              className={`${menu ? "drawer-toggle" : "hidden"}`}
-              // hidden={true}
+              className={` drawer-toggle  ${menu ? "left-0" : "left-[-100%]"}`}
             />
             <div className="drawer-content flex flex-col items-end justify-center">
               <label
                 htmlFor="drawer"
-                className="bg-amber-300 p-4 rounded-xl cursor-pointer hover:bg-amber-400/75"
+                className="bg-[#b18c57] p-4 rounded-xl cursor-pointer hover:bg-[#b18c57]/75"
                 onClick={handleChange}
               >
                 <div className="" hidden={!menu}>
@@ -89,20 +102,24 @@ const Navbar = () => {
                 </div>
               </label>
             </div>
-            <div className={`drawer-side pt-9 -translate-x-10 absolute w-screen h-screen opacity-90 ${menu ? "" : "hidden"}`}>
+            <div
+              className={`drawer-side pt-7 -translate-x-10 absolute w-screen h-screen opacity-90 transition duration-200 ${
+                menu ? "left-0" : "left-[-100%]"
+              }`}
+            >
               <label htmlFor="drawer" className="drawer-overlay"></label>
-              <ul className="menu py-4 px-10 w-96 bg-black/75 text-2xl">
-                <NavMenu className="hover:bg-gray-800 hover:bg-opacity-75" />
+              <ul className="menu py-4 px-10 w-screen bg-black/75 text-2xl ">
+                <NavMenu className="hover:bg-slate-400/75 dark:hover:bg-gray-800 hover:bg-opacity-75 w-56 mb-8" />
               </ul>
             </div>
           </div>
 
           {/* Menu lg-screen */}
           <div className="hidden list-none gap-10 text-xl lg:flex lg:items-center">
-            <NavMenu />
+            <NavMenu className="text-base xl:text-xl hover:text-[#b18c57]" />
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

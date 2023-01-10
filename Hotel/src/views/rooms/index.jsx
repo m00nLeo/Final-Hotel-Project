@@ -1,19 +1,20 @@
 import React from "react";
-import Hero from "../homepage/Hero";
-import RoomsAndSuites from "../homepage/RoomsAndSuites";
+
 import Services from "../homepage/Services";
+import RoomsList from "./RoomsList";
+import TelephoneBooking from "./TelephoneBooking";
 
 const Rooms = () => {
   return (
     <div>
       {/* Container */}
-      <div className="">
+      <div className="font-subHeading">
         {/* Layout */}
         <div className="">
           {/* Content */}
-          <Hero />
-          <RoomsAndSuites />
+          <RoomsList />
           <Services />
+          <TelephoneBooking />
         </div>
       </div>
     </div>
