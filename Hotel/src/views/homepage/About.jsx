@@ -1,4 +1,6 @@
-import React from 'react'
+import React from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
+import Container from "../../components/common/Container";
 
 const About = () => {
   return (
@@ -49,4 +51,4 @@ const About = () => {
   );
 };
 
-export default About
+export default About;

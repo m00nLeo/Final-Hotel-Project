@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div>
       {/* Container */}
-      <div className="">
+      <div className="font-subHeading">
         {/* Layout */}
         <div className="">
           {/* Content */}

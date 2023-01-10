@@ -1,4 +1,25 @@
-import React from 'react'
+import React from "react";
+import { FaCarAlt, FaSwimmingPool } from "react-icons/fa";
+import { BiDish, BiWifi } from "react-icons/bi";
+import { GiMuscleUp, GiSpotedFlower } from "react-icons/gi";
+import Container from "../../components/common/Container";
+
+const ServicesList = ({ icon, header, para }) => {
+  return (
+    <div className="flex gap-5">
+      <div className="mr-1 pt-2 text-light">
+        {/* Icon */}
+        <div className="text-4xl">{icon}</div>
+      </div>
+      <div className="ml-2">
+        <h3 className="text-xl text-primary dark:text-light font-h2 pb-2">{header}</h3>
+        <p className="text-primary dark:text-gray-400 font-subHeading text-base font-extralight pb-4">
+          {para}
+        </p>
+      </div>
+    </div>
+  );
+};
 
 const Services = () => {
   return (
@@ -75,4 +96,4 @@ const Services = () => {
   );
 };
 
-export default Services
+export default Services;
