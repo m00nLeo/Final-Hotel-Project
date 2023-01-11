@@ -66,7 +66,7 @@ const Hero = () => {
         <section className="absolute -translate-y-full z-10 h-screen flex flex-col justify-center px-6 ">
           <div className="max-w-3xl mb-8">
             <h2 className="text-5xl mb-8 text-white dark:text-slate-200">
-              ELYSIA Hotel
+              The ELYSIA Hotel
             </h2>
             <p className="text-base text-justify text-stone-100 dark:text-gray-300 font-normal">
               In the heart of Saigonian "cultural bustle", indulge yourself in
