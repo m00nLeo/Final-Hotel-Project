@@ -53,7 +53,8 @@ const RoomsList = [
     price: 400,
     description:
       "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
   },
   {
     id: 6,
@@ -61,7 +62,8 @@ const RoomsList = [
     price: 350,
     description:
       "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://images.unsplash.com/photo-1605346434674-a440ca4dc4c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    imageUrl:
+      "https://images.unsplash.com/photo-1605346434674-a440ca4dc4c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
   },
 ];
 
@@ -99,7 +101,11 @@ const RoomsSlider = () => {
         {RoomsList.map((room) => (
           <SwiperSlide key={room.id}>
             <div className="relative group" key={room.id}>
-              <img className="opacity-60 h-[700px] md:h-[600px] xl:h-96 w-full object-center" src={room.imageUrl} alt="" />
+              <img
+                className="opacity-60 h-[700px] md:h-[600px] xl:h-96 w-full object-center"
+                src={room.imageUrl}
+                alt=""
+              />
               <div className="text-sm font-bold absolute top-5 left-5 font-sans">
                 ${room.price} <span className="font-light">/ Night</span>
               </div>
@@ -129,7 +135,7 @@ const RoomsSlider = () => {
 
 const RoomsAndSuites = () => {
   return (
-    <div className=" bg-[#222222] py-16 mb-10">
+    <div className=" bg-[#222222] py-10">
       {/* container */}
       <Container fluid={true}>
         <div className="">
