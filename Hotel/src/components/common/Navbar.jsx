@@ -13,9 +13,9 @@ const NavMenu = ({ className }) => {
         </Link>
       </li>
       <li>
-        <a href="#about" className={className}>
+        <Link to="/about" className={className}>
           About
-        </a>
+        </Link>
       </li>
       <li>
         <Link to="/rooms" className={className}>
@@ -23,9 +23,11 @@ const NavMenu = ({ className }) => {
         </Link>
       </li>
       <li>
-        <a href="#services" className={className}>
-          Services
-        </a>
+        <Link to="/#services">
+          {/* <a href="#services" className={className}> */}
+            Services
+          {/* </a> */}
+        </Link>
       </li>
       <li>
         <Link to="/contact" className={className}>

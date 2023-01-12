@@ -1,5 +1,6 @@
 import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import Container from "../../components/common/Container";
 
 const About = () => {
@@ -37,12 +38,12 @@ const About = () => {
               voluptatibus, rem quis deserunt modi eaque corporis.
             </p>
             <div className="">
-              <button className="flex items-center gap-1 font-thin bg-[#b18c57] text-white py-3 px-5">
+              <Link to="/about" className="flex items-center gap-1 font-thin bg-[#b18c57] text-white py-3 px-5 w-fit">
                 Read More
                 <span>
                   <AiOutlineArrowRight />
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

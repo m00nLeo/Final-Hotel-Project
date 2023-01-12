@@ -4,6 +4,7 @@ import Home from "../views/homepage";
 import Rooms from "../views/rooms";
 import Contact from "../views/contact";
 import Reservation from "../views/reservation";
+import AboutHotel from "../views/about";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <AboutHotel />,
       },
       {
         path: "/rooms",

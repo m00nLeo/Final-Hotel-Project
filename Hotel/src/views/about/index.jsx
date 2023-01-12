@@ -1,8 +1,8 @@
 import React from "react";
-import Email from "./Email";
-import SubHero from "./SubHero";
+import SubHero from "../contact/SubHero";
+import AboutUs from "./AboutUs";
 
-const Contact = () => {
+const AboutHotel = () => {
   return (
     <div>
       {/* Container */}
@@ -10,12 +10,12 @@ const Contact = () => {
         {/* Layout */}
         <div className="">
           {/* Content */}
-          <SubHero title="Contact Us" path="Contact"/>
-          <Email />
+          <SubHero title="About Us" path="About" />
+          <AboutUs />
         </div>
       </div>
     </div>
   );
 };
 
-export default Contact;
+export default AboutHotel;

@@ -1,15 +1,15 @@
 import React from "react";
 import Container from "../../components/common/Container";
-import { RxDoubleArrowRight } from "react-icons/rx";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 // import required modules
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay, Scrollbar } from "swiper";
 import { Link } from "react-router-dom";
 
 const BackgroundImg = [
@@ -35,27 +35,26 @@ const BackgroundImg = [
   },
 ];
 
-const Hero = () => {
+const SubHero = ({ title, path }) => {
   return (
     <div className="relative">
       {/* Cotainer */}
       {/* Layout */}
       <Swiper
-        direction={"horizontal"}
-        pagination={{
-          dynamicBullets: true,
+        scrollbar={{
+          hide: true,
         }}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Scrollbar]}
       >
         {BackgroundImg.map((img) => (
           <SwiperSlide key={img.id}>
-            <div className="relative h-screen">
+            <div className="relative h-[500px]">
               <div className="absolute inset-0 bg-black opacity-950 dark:opacity-60">
-                <img src={img.imageUrl} className="w-full h-full" />
+                <img src={img.imageUrl} className="w-full h-full object-cover" />
               </div>
             </div>
           </SwiperSlide>
@@ -64,26 +63,17 @@ const Hero = () => {
 
       {/* Content */}
       <Container>
-        <section className="absolute -translate-y-full z-10 h-screen flex flex-col justify-center px-6 ">
+        <section className="absolute -translate-y-3/4 z-10 h-screen flex flex-col justify-center px-6 ">
           <div className="max-w-3xl mb-8">
-            <h2 className="text-5xl mb-8 text-white dark:text-slate-200">ELYSIA Hotel</h2>
-            <p className="text-base text-justify text-stone-100 dark:text-gray-300 font-normal">
-              In the heart of Saigonian "cultural bustle", indulge yourself in
-              the Romantic’s Art of Living in the enchanted setting of the
-              Elysia boutique hotel. Luxury, beauty and culture are the
-              watchwords of this dwelling, which will be your muse just a
-              stone’s throw from the Arc de Triomphe. In this allegory of the
-              famous 19th century artistic movement, every detail has been
-              designed to ensure you enjoy an extraordinary experience.
+            <h2 className="text-5xl mb-8 text-white dark:text-slate-200">
+              {title}
+            </h2>
+            <p className="text-base md:text-lg lg:text-xl text-justify text-stone-100/90 dark:text-gray-300 font-normal">
+              <Link to="/" className="text-white">
+                Home
+              </Link>{" "}
+              / {path}
             </p>
-          </div>
-          <div className="border border-white text-white font-semibold hover:bg-white hover:text-black w-fit">
-            <Link to="/about" className="flex gap-4 items-center px-4 py-2">
-              Read more
-              <span>
-                <RxDoubleArrowRight />
-              </span>
-            </Link>
           </div>
         </section>
       </Container>
@@ -91,4 +81,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default SubHero;

@@ -117,7 +117,7 @@ const Footer = () => {
               <h1 className="mb-4 text-3xl">Subscribe</h1>
               <div className="flex pt-4">
                 <input
-                  className="outline-none bg-white py-2 px-4 w-full"
+                  className="outline-none bg-white py-2 px-4 w-full text-black"
                   text="input"
                   placeholder="Your Email"
                 />
@@ -129,19 +129,19 @@ const Footer = () => {
             <div className="text-gray-500 ">
               <h1 className="mb-4 text-2xl ">Connect social</h1>
               <div className="flex items-center font-semibold gap-4 text-base">
-                <a className="hover:text-gray-100" href="">
+                <a className="hover:text-gray-100" target="_blank" href="http://www.facebook.com">
                   <BsFacebook />
                 </a>
-                <a className="hover:text-gray-100" href="">
+                <a className="hover:text-gray-100" target="_blank" href="http://www.twitter.com">
                   <BsTwitter />
                 </a>
-                <a className="hover:text-gray-100" href="">
+                <a className="hover:text-gray-100" target="_blank" href="http://www.instagram.com">
                   <BsInstagram />
                 </a>
-                <a className="hover:text-gray-100" href="">
+                <a className="hover:text-gray-100" target="_blank" href="http://www.youtube.com">
                   <AiOutlineYoutube />
                 </a>
-                <a className="hover:text-gray-100" href="">
+                <a className="hover:text-gray-100" target="_blank" href="http://www.tiktok.com">
                   <FaTiktok />
                 </a>
               </div>
