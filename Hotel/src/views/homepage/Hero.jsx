@@ -6,10 +6,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 // import required modules
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay, Scrollbar } from "swiper";
 import { Link } from "react-router-dom";
 
 const BackgroundImg = [
@@ -20,12 +20,12 @@ const BackgroundImg = [
   },
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "https://images.unsplash.com/photo-1531973819741-e27a5ae2cc7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     id: 2,
   },
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
     id: 3,
   },
   {
@@ -41,21 +41,20 @@ const Hero = () => {
       {/* Cotainer */}
       {/* Layout */}
       <Swiper
-        direction={"horizontal"}
-        pagination={{
-          dynamicBullets: true,
+        scrollbar={{
+          hide: false,
         }}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay, Pagination]}
+        modules={[Autoplay, Scrollbar]}
       >
         {BackgroundImg.map((img) => (
           <SwiperSlide key={img.id}>
             <div className="relative h-screen">
-              <div className="absolute inset-0 bg-black opacity-950 dark:opacity-60">
-                <img src={img.imageUrl} className="w-full h-full" />
+              <div className="absolute inset-0 opacity-95 dark:opacity-60">
+                <img src={img.imageUrl} className="object-center md:object-fill w-full h-full" />
               </div>
             </div>
           </SwiperSlide>
@@ -66,7 +65,9 @@ const Hero = () => {
       <Container>
         <section className="absolute -translate-y-full z-10 h-screen flex flex-col justify-center px-6 ">
           <div className="max-w-3xl mb-8">
-            <h2 className="text-5xl mb-8 text-white dark:text-slate-200">ELYSIA Hotel</h2>
+            <h2 className="text-5xl mb-8 text-white dark:text-slate-200">
+              The ELYSIA Hotel
+            </h2>
             <p className="text-base text-justify text-stone-100 dark:text-gray-300 font-normal">
               In the heart of Saigonian "cultural bustle", indulge yourself in
               the Romantic’s Art of Living in the enchanted setting of the

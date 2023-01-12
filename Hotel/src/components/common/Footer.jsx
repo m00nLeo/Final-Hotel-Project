@@ -1,5 +1,5 @@
 import React from "react";
-import { CiLocationOn } from "react-icons/ci";
+import { GoLocation } from "react-icons/go";
 import { FaTiktok } from "react-icons/fa";
 import {
   BsTwitter,
@@ -64,7 +64,7 @@ const Footer = () => {
             <ul>
               <li className="items-center mb-4 text-gray-500 flex gap-2">
                 <span className="">
-                  <CiLocationOn />
+                  <GoLocation />
                 </span>
                 <p className="text-base">
                   202 Hoang Van Thu, Ward 9, District 1, Ho Chi Minh City.

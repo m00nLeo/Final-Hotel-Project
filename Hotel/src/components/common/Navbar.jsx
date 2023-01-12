@@ -34,10 +34,10 @@ const NavMenu = ({ className }) => {
           Contact
         </Link>
       </li>
-      <li className="lg:bg-[#b18c57] rounded lg:px-3 lg:py-2">
+      <li className="lg:bg-[#b18c57] rounded lg:hover:bg-inherit group lg:border border-[#b18c57]">
         <Link
           to="/reservation"
-          className={`${className} flex gap-2 items-center text-white hover:text-white`}
+          className={`${className} flex gap-2 lg:px-3 lg:py-2  items-center text-white lg:group-hover:text-[#b18c57]`}
         >
           <span className="hidden lg:flex">
             <SiAerlingus />

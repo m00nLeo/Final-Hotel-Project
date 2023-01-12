@@ -120,7 +120,7 @@ const Reviews = () => {
       {/* Container */}
       <div className="">
         {/* Layout */}
-        <div className="relative overflow-hidden bg-[url('https://bilurygallery.bithemer.com/assets/img/background/bg2.jpg')] bg-blend-overlay bg-gray-800/80 bg-cover object-center">
+        <div className="relative overflow-hidden bg-[url('https://bilurygallery.bithemer.com/assets/img/background/bg2.jpg')] bg-blend-overlay bg-gray-800/90 bg-cover object-center">
           {/* Content */}
           <div className="px-2 py-16">
             {/* Reviews Section */}
