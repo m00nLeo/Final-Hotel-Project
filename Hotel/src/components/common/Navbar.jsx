@@ -23,7 +23,7 @@ const NavMenu = ({ className }) => {
         </Link>
       </li>
       <li>
-        <Link to="/#services">
+        <Link to="/#services" className={className}>
           {/* <a href="#services" className={className}> */}
             Services
           {/* </a> */}
