@@ -1,132 +1,114 @@
 import React from "react";
-import { CiLocationOn } from "react-icons/ci";
+import { GoLocation, GoMail } from "react-icons/go";
 import { BsTelephone } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/ai"
 import { BiWorld } from "react-icons/bi";
+import Container from "../../components/common/Container";
+
+const ContactList = ({ icon, title, para }) => {
+  return (
+    <div className="flex items-center gap-6 text-[#987648] mb-4 lg:mb-8 text-lg lg:text-2xl">
+      <div className="w-4">{icon}</div>
+      <div className="">
+        <h3 className="text-lg lg:text-xl text-gray-700/90 mb-1 font-h2">
+          {title}
+        </h3>
+        <p className="text-gray-500 text-sm lg:text-base">{para}</p>
+      </div>
+    </div>
+  );
+};
+
+const ContactInput = ({ title, type, className }) => {
+  return (
+    <>
+      <input
+        className={`px-2 py-3 bg-white border mb-4 outline-none text-black ${className}`}
+        type={type}
+        placeholder={`${title} *`}
+      />
+    </>
+  );
+};
 
 const Email = () => {
   return (
-    <div className="mx-auto max-h-screen-xl">
-      <div className=" ">
-        <div className=" bg-[#FEF4E8]">
-          <div className="grid lg:grid-cols-2  px-12 py-12 ">
-            <div>
-              <div>
-                <span className="flex items-center gap-6">
-                  <CiLocationOn className="text-[#987648]" />
-                  <h className="text-2xl text-[#343a40]  ">Address</h>
-                </span>
+    <div className="mb-10">
+      <div className=" bg-[#FEF4E8] mb-10">
+        <Container fluid={true}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 py-12 px-2 lg:px-0">
+            <div className="w-3/4 mb-4">
+              <ContactList
+                icon={<GoLocation />}
+                title="Address"
+                para="202 Hoang Van Thu, Ward 9, District 1, Ho Chi Minh City."
+              />
 
-                <p className="text-gray-600 pl-9 mb-4">
-                  202 Hoang Van Thu, Ward 9, District 1, Ho Chi Minh City.
-                </p>
-              </div>
-
-              <div>
-                <span className="flex items-center  gap-6">
-                  <BsTelephone className="text-[#987648]" />
-                  <h2 className="text-2xl  text-[#343a40]">Phone</h2>
-                </span>
-
-                <p className="text-gray-600 pl-9  mb-4">+81 (0) 968150014</p>
-              </div>
-
-              <div>
-                <span className="flex items-center  gap-6">
-                  <AiOutlineMail className="text-[#987648]" />
-                  <h2 className="text-2xl  text-[#343a40]">Email</h2>
-                </span>
-
-                <p className="text-gray-600 mb-3 pl-9">
-                  customer.helpdesk@elysia.com
-                </p>
-              </div>
-
-              <div>
-                <span className="flex items-center  gap-6">
-                  <BiWorld className="text-[#987648]" />
-                  <h2 className="text-2xl  text-[#343a40]">Website</h2>
-                </span>
-
-                <p className="text-gray-600 mb-4 pl-9">
-                  www.theealysiahotel.com
-                </p>
-              </div>
+              <ContactList
+                icon={<BsTelephone />}
+                title="Phone"
+                para="+84 (0) 968 151 617"
+              />
+              <ContactList
+                icon={<GoMail />}
+                title="Email"
+                para="customer.helpdesk@elysia.com"
+              />
+              <ContactList
+                icon={<BiWorld />}
+                title="Website"
+                para="www.theealysiahotel.com"
+              />
             </div>
 
-            <div className="row " >
-              <p className="font-thin mb-4">
-                The fields marked with * are required.
-              </p>
+            <div className="font-thin text-sm lg:col-span-2">
+              <p className="mb-4">The fields marked with * are required.</p>
               <div className="grid md:grid-cols-2 gap-3">
-                <input 
-                  className=" p-2 font-thin border-2 h-12 mb-4 text:ml-2   "
-                  type="text "
-                  placeholder="First Name *" 
-                />
-                <input
-                  className=" p-2  font-thin border-2 h-12 mb-4 text:ml-2   "
+                <ContactInput title="First Name" type="text" />
+                <ContactInput title="Last Name" type="text" />
+                <ContactInput title="Email" type="text" />
+                <ContactInput title="Phone" type="number" />
+                <ContactInput
+                  title="Subject"
                   type="text"
-                  placeholder="Last Name *" 
+                  className="col-span-2"
                 />
-                <input
-                  className=" p-2  font-thin border-2 h-12 mb-4 text:ml-2  "
+                {/* <ContactInput
+                  title="Message"
                   type="text"
-                  placeholder="Email *" 
-                />
-                <input
-                  className="p-2  font-thin border-2 h-12 mb-4 text:ml-2  "
-                  type="text"
-                  placeholder=" Phone *" 
-                />
-              </div>
-              <div className=" grid grid-cols-1">
-                <input
-                  className="p-2  font-thin border-2 h-12 mb-4 text:ml-2  "
-                  type="text"
-                  placeholder="Subject *"
-                />
-                <input
-                  className=" p-2  font-thin border-2 h-40 mb-4 text:ml-2  "
-                  type="text"
+                  className="col-span-2 h-20 md:h-32 lg:h-48"
+                /> */}
+                <textarea
+                  className="px-2 py-3 bg-white border mb-4  col-span-2 h-20 md:h-32 lg:h-48 outline-none"
                   placeholder="Message *"
-                />
+                ></textarea>
               </div>
-              <div className=" flex  mb-4  justify-between">
-                <div className="flex gap-3 items-center  ">
-                  <input className="p-2" type="checkbox" />
-                  <label
-                    htmlFor="invalidCheck"
-                    className="flex gap-2 font-thin"
-                  >
+
+              <div className="lg:flex mb-4 justify-between items-center">
+                <div className="flex gap-3 items-center mb-4">
+                  <input type="checkbox" id="terms" />
+                  <label htmlFor="terms" className="flex gap-1">
                     I agree to
-                    <a
-                      className="text-[#b18c57] font-thin  hover:text-gray-500 "
-                      href=""
-                    >
+                    <a className="text-[#b18c57] font-semibold" href="">
                       terms and policy
                     </a>
                   </label>
                 </div>
-                <button className="bg-[#987648] hover:bg-slate-500 text-white text-2xl w-48 h-12 ">
+                <button className="bg-[#b18c57] hover:bg-[#997a4e] text-lg px-4 py-2 text-white ">
                   Send message
                 </button>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
-      <div>
+      <Container fluid={true}>
         <iframe
-        className="py-12 pl-12"
+          className=" w-full h-96"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1378200353793!2d106.66671311376858!3d10.800754761700095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752930e65c14bf%3A0x6fb8f1972d050a64!2zMjAyIEhvw6BuZyBWxINuIFRo4bulLCBQaMaw4budbmcgOSwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1673338226862!5m2!1svi!2s"
-          width="1200"
-          height="600"
-         
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div>
+      </Container>
     </div>
   );
 };

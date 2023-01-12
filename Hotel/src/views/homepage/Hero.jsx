@@ -79,7 +79,7 @@ const Hero = () => {
             </p>
           </div>
           <div className="border border-white text-white font-semibold hover:bg-white hover:text-black w-fit">
-            <Link to="" className="flex gap-4 items-center px-4 py-2">
+            <Link to="/about" className="flex gap-4 items-center px-4 py-2">
               Read more
               <span>
                 <RxDoubleArrowRight />

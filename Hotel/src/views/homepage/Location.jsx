@@ -15,10 +15,11 @@ const Location = () => {
               </span>
               202 Hoang Van Thu, Ward 9, District 1, Ho Chi Minh City.
             </p>
-            <p className="text-base mb-4 text-gray-500">
-              Ong Pagoda is 355 meters away, 5 minutes walk. Ham Nghi Transit
-              Point is 464 meters away, 6 min walk. New World Hotel is 475
-              meters away, 7 minutes walk.
+            <p className="text-base mb-4 text-gray-500 text-justify">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
+              perferendis fugit cumque eveniet et minus quasi neque molestiae
+              iusto consequatur eos reiciendis, accusamus fuga quis nulla quae
+              odit nobis
             </p>
             <div className="">
               <a
@@ -34,7 +35,7 @@ const Location = () => {
           </div>
           <iframe
             className="col-span-2 w-full h-96"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1378887972073!2d106.66671311489216!3d10.800749492305028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752930e65c14bf%3A0x6fb8f1972d050a64!2zMjAyIEhvw6BuZyBWxINuIFRo4bulLCBQaMaw4budbmcgOSwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1673339573744!5m2!1svi!2s"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1378200353793!2d106.66671311376858!3d10.800754761700095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752930e65c14bf%3A0x6fb8f1972d050a64!2zMjAyIEhvw6BuZyBWxINuIFRo4bulLCBQaMaw4budbmcgOSwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1673338226862!5m2!1svi!2s"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
