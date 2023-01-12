@@ -15,6 +15,17 @@ module.exports = {
         light: "#987648",
         beige: "#f8f5f0",
       },
+      backgroundColor: {
+        beige: "#f8f5f0",
+        light: "#987648",
+      },
+      listStyleType: {
+        none: 'none',
+        disc: 'disc',
+        decimal: 'decimal',
+        square: 'square',
+        roman: 'upper-roman',
+      }
     },
   },
   plugins: [require("daisyui")],
