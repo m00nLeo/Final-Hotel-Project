@@ -732,9 +732,13 @@ const RoomInformation = () => {
             <div className="md:flex md:gap-2 border-b-gray-100  border-b-[1px]">
               <button
                 key={1}
-                className={`md:w-1/4  focus:text-light md:focus:border-x-2 md:focus:border-t-2 md:focus:border-gray-100  focus:bg-white  bg-slate-100 text-primary  hover:text-slate-500/50 w-full font-subHeading font-semibold tracking-wider${
-                  active === "1" ? "active" : undefined
-                }`}
+                className={`md:w-1/4 py-4 
+                   lg:hover:text-slate-500/50  md:hover:text-slate-500/50 
+                 w-full font-subHeading font-semibold tracking-wider ${
+                   active === "1"
+                     ? " md:border-gray-100  bg-white  text-light md:border-x-2 md:border-t-2"
+                     : "bg-slate-100 text-primary "
+                 }`}
                 id={"1"}
                 onClick={handleClick}
               >
@@ -743,9 +747,13 @@ const RoomInformation = () => {
 
               <button
                 key={2}
-                className={`md:w-1/4 py-4 md:focus:border-x-2 md:focus:border-t-2 md:focus:border-gray-100  bg-slate-100 text-primary hover:text-slate-500/50 w-full font-subHeading font-semibold tracking-wider focus:text-light focus:bg-white ${
-                  active === "2" ? "active" : undefined
-                }`}
+                className={`md:w-1/4 py-4 
+                   lg:hover:text-slate-500/50  md:hover:text-slate-500/50 
+                 w-full font-subHeading font-semibold tracking-wider ${
+                   active === "2"
+                     ? " md:border-gray-100  bg-white  text-light md:border-x-2 md:border-t-2"
+                     : "bg-slate-100 text-primary "
+                 }`}
                 id={"2"}
                 onClick={handleClick}
               >
