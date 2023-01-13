@@ -12,395 +12,100 @@ import {
 } from "react-icons/fa";
 
 const AmenityServices = () => {
+  const Clothing = [
+    "Wash Clothes",
+    "Shoeshine kit",
+    "Ironing facilities",
+    "Sewing kit",
+    "Closet",
+  ];
+  const Safety = [
+    "24hour Security",
+    "Smoke Detector",
+    "Locker",
+    "First aid kit",
+    "Fire extinguisher",
+  ];
+  const Comforts = [
+    "Daily Housekeeping",
+    "Air Purifier",
+    "Umbrella",
+    "Slippers",
+    "Wake-up service",
+    "Mosquito net",
+    "Humidifier",
+    "Fan",
+    "Linens",
+    "Slippers",
+    "Alarm clock",
+    "Air conditioning",
+  ];
+  const Layout = [
+    "City view",
+    "Windows",
+    "Luggage Storage",
+    "Balcony View",
+    "Wooden/parqueted flooring",
+    "High floor",
+    "Desk",
+    "Carpeting",
+  ];
+  const Bathroom = [
+    "Shower",
+    "Slippers For Kids",
+    "Cosmetics",
+    "Shower and bathtub",
+    "Toiletries",
+    "Towels",
+    "Mirror",
+    "Hair dryer",
+  ];
+  const Entertainment = [
+    "Free Wi-Fi in all rooms!",
+    "Satellite/cable channels",
+    "Telephone",
+  ];
+  const Dining = [
+    "Electric Hot Water Pot",
+    "Microwave",
+    "Kitchenette",
+    "Free instant coffeeew",
+    "Free welcome drink",
+    "Refrigerator",
+    "Coffee/tea maker",
+    "Free bottled water",
+    "Mini bar",
+  ];
+
+  const ItemList = ({ title, amenityItem }) => {
+    return (
+      <div className="pb-4">
+        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">{title} </h2>
+        {/* List */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
+          {amenityItem.map((item) => (
+            <div className="gap-2 items-center" key={item}>
+              <FaCheck className=" inline-block mr-3 text-light " />
+              <span className="font-subHeading text-primary font-extralight leading-3">
+                {item}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="">
       {/* Amenity Services */}
-      <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">
-          Clothing and laundry
-        </h2>
-        {/* List */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-          <div className=" gap-2 items-center">
-            <FaCheck className=" inline-block mr-3 text-light " />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Wash Clothes
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Shoeshine kit
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Ironing facilities
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Sewing kit
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Closet
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">
-          Safety and security features
-        </h2>
-        {/* List */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-          <div className=" gap-2 items-center">
-            <FaCheck className=" inline-block mr-3 text-light " />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              24hour Security
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Smoke Detector
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Locker
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              First aid kit
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Fire extinguisher
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">Comforts</h2>
-        {/* List */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-          <div className=" gap-2 items-center">
-            <FaCheck className=" inline-block mr-3 text-light " />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Daily Housekeeping
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Air Purifier
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Umbrella
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Slippers
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Wake-up service
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Mosquito net
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Humidifier
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Fan
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Linens
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Slippers
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Alarm clock
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Air conditioning
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">
-          Layout and furnishings
-        </h2>
-        {/* List */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-          <div className=" gap-2 items-center">
-            <FaCheck className=" inline-block mr-3 text-light " />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              City view
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Windows
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Luggage Storage
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Balcony View
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Wooden/parqueted flooring
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              High floor
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Desk
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Carpeting
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">
-          Bathroom and toiletries
-        </h2>
-        {/* List */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-          <div className=" gap-2 items-center">
-            <FaCheck className=" inline-block mr-3 text-light " />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Shower{" "}
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Slippers For Kids
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Cosmetics
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Shower and bathtub
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Toiletries{" "}
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Towels{" "}
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Mirror
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Cleaning products
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Hair dryer
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">
-          Entertainment
-        </h2>
-        {/* List */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-          <div className=" gap-2 items-center">
-            <FaCheck className=" inline-block mr-3 text-light " />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Free Wi-Fi in all rooms!
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Satellite/cable channels
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Telephone
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">
-          Dining, drinking, and snacking
-        </h2>
-        {/* List */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-          <div className=" gap-2 items-center">
-            <FaCheck className=" inline-block mr-3 text-light " />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Electric Hot Water Pot
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Microwave
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Kitchenette
-            </span>
-          </div>
-
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Free instant coffee
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Free welcome drink
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Refrigerator{" "}
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Coffee/tea maker
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Free bottled water
-            </span>
-          </div>
-          <div className=" gap-3 items-center">
-            <FaCheck className=" inline-block mr-3 text-light" />
-            <span className="font-subHeading text-primary font-extralight leading-3">
-              Mini bar
-            </span>
-          </div>
-        </div>
-      </div>
+      <ItemList title="Clothing and laundry" amenityItem={Clothing} />
+      <ItemList title="Safety and security features" amenityItem={Safety} />
+      <ItemList title="Comforts" amenityItem={Comforts} />
+      <ItemList title="Layout and furnishings" amenityItem={Layout} />
+      <ItemList title="Bathroom and toiletries" amenityItem={Bathroom} />
+      <ItemList title="Entertainment" amenityItem={Entertainment} />
+      <ItemList title="Dining, drinking, and snacking" amenityItem={Dining} />
     </div>
   );
 };
@@ -462,6 +167,40 @@ const RoomPolicies = () => {
 };
 
 const RoomInformation = () => {
+  const RoomInfo = ({ icon, para }) => {
+    return (
+      <div className="pb-2 text-lg flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
+        {icon}
+        <p className="font-subHeading text-base text-primary font-extralight tracking-wide">
+          {para}
+        </p>
+      </div>
+    );
+  };
+
+  const Available = [
+    "Welcome drink, fresh fruit & cold towels",
+    "Daily complimentary tea, coffee, water",
+    "Free wifi high speed",
+    "Free late check out or early check in",
+    "10% discount for tour service",
+    "Breakfast between the trip",
+  ];
+  const OfferList = () => {
+    return (
+      <div className="lg:grid lg:grid-cols-2">
+        {Available.map((item) => (
+          <div className="gap-3 items-center leading-8" key={item}>
+            <FaCheck className=" inline-block mr-3 text-light " />
+            <span className="font-subHeading text-primary font-extralight tracking-wide">
+              {item}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   const today = new Date();
   const arrday = today.toISOString().split("T")[0];
   const numberOfDaysToAdd = 1;
@@ -505,52 +244,23 @@ const RoomInformation = () => {
                 </h2>
                 {/* List info */}
                 <div className="md:grid md:grid-cols-2">
-                  <div className="flex gap-2 items-center pb-2">
-                    <BiBed className=" text-xl " />
-                    <p className="font-subHeading text-primary font-extralight tracking-wide">
-                      1 King Bed / 2 Single Beds
-                    </p>
-                  </div>
-                  <div className="pb-2 flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
-                    <FaArrowsAlt className="text-primary" />
-                    <p className="font-subHeading text-primary font-extralight tracking-wide">
-                      Room size 30 m² / 323 ft²
-                    </p>
-                  </div>
-                  <div className="pb-2 flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
-                    <FaBuilding className=" text-lg " />
-                    <p className="font-subHeading text-primary font-extralight tracking-wide">
-                      With view street
-                    </p>
-                  </div>
-                  <div className="pb-2 flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
-                    <FaBath className=" text-lg" />
-                    <p>Shower and Bathtub</p>
-                  </div>
-                  <div className="pb-2 flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
-                    <FaPeopleArrows className=" text-lg " />
-                    <p className="font-subHeading font-extralight tracking-wide">
-                      2 Adults - 1 Children
-                    </p>
-                  </div>
-                  <div className="pb-2 flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
-                    <FaSmokingBan className=" text-lg" />
-                    <p className="font-subHeading text-primary font-extralight tracking-wide">
-                      No Smoking
-                    </p>
-                  </div>
-                  <div className="pb-2 flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
-                    <FaHamburger className=" text-lg" />
-                    <p className="font-subHeading text-primary font-extralight tracking-wide">
-                      Breakfast Included
-                    </p>
-                  </div>
-                  <div className="pb-2 flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
-                    <BiBed className=" text-xl " />
-                    <p className="font-subHeading text-primary font-extralight tracking-wide">
-                      ExtraBed (US$10.00)
-                    </p>
-                  </div>
+                  <RoomInfo
+                    icon={<BiBed />}
+                    para="1 King Bed / 2 Single Beds"
+                  />
+                  <RoomInfo
+                    icon={<FaArrowsAlt />}
+                    para="Room size 30 m² / 323 ft²"
+                  />
+                  <RoomInfo icon={<FaBuilding />} para="With view street" />
+                  <RoomInfo icon={<FaBath />} para="Shower and Bathtub" />
+                  <RoomInfo
+                    icon={<FaPeopleArrows />}
+                    para="2 Adults - 1 Children"
+                  />
+                  <RoomInfo icon={<FaSmokingBan />} para="No Smoking" />
+                  <RoomInfo icon={<FaHamburger />} para="Breakfast Included" />
+                  <RoomInfo icon={<BiBed />} para="ExtraBed (US$10.00)" />
                 </div>
               </div>
               <hr />
@@ -560,48 +270,7 @@ const RoomInformation = () => {
                   Available Offers
                 </h2>
                 {/* Offer List */}
-                <div className="lg:grid lg:grid-cols-2">
-                  <div className=" gap-3 items-center leading-8">
-                    <FaCheck className=" inline-block mr-3 text-light" />
-                    <span className="font-subHeading text-primary font-extralight tracking-wide">
-                      Welcome drink, fresh fruit & cold towels
-                    </span>
-                  </div>
-
-                  <div className=" gap-3 items-center leading-8">
-                    <FaCheck className=" inline-block mr-3 text-light" />
-                    <span className="font-subHeading text-primary font-extralight tracking-wide">
-                      Daily complimentary tea, coffee, water
-                    </span>
-                  </div>
-
-                  <div className=" gap-3 items-center leading-8">
-                    <FaCheck className=" inline-block mr-3 text-light" />
-                    <span className="font-subHeading text-primary font-extralight tracking-wide">
-                      Free wifi high speed
-                    </span>
-                  </div>
-                  <div className=" gap-3 items-center leading-8">
-                    <FaCheck className=" inline-block mr-3 text-light" />
-                    <span className="font-subHeading text-primary font-extralight tracking-wide">
-                      Free late check out or early check in.
-                    </span>
-                  </div>
-
-                  <div className=" gap-3 items-center leading-8">
-                    <FaCheck className=" inline-block mr-3 text-light" />
-                    <span className="font-subHeading text-primary font-extralight tracking-wide">
-                      10% discount for tour service
-                    </span>
-                  </div>
-
-                  <div className=" gap-3 items-center leading-8">
-                    <FaCheck className=" inline-block mr-3 text-light" />
-                    <span className="font-subHeading text-primary font-extralight tracking-wide">
-                      Breakfast between the trip
-                    </span>
-                  </div>
-                </div>
+                <OfferList />
               </div>
             </div>
 
