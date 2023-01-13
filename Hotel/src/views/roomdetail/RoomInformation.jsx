@@ -10,6 +10,7 @@ import {
   FaCheck,
   FaCalendarAlt,
 } from "react-icons/fa";
+import Container from "../../components/common/Container";
 
 const AmenityServices = () => {
   const Clothing = [
@@ -215,11 +216,11 @@ const RoomInformation = () => {
   return (
     <div>
       {/* Container */}
-      <div className=" max-w-screen-xl mx-auto p-4 md:p-8 pb-3">
+      <Container fluid={true}>
         {/* Layout */}
         <div>
           {/* Content */}
-          <div className="md:grid md:grid-cols-4 md:gap-6 md:mb-7">
+          <div className="lg:grid md:grid-cols-4 md:gap-6 md:mb-7">
             {/* Intro */}
             <div className="md:grid md:col-span-3">
               <div>
@@ -398,7 +399,7 @@ const RoomInformation = () => {
           </div>
           {/* Button - Policies & Amenity Services */}
           <div className="">
-            <div className="md:flex md:gap-2 border-b-gray-100  border-b-[1px]">
+            <div className="flex md:gap-2 border-b-gray-100  border-b-[1px]">
               <button
                 key={1}
                 className={`md:w-1/4 py-4 
@@ -436,7 +437,7 @@ const RoomInformation = () => {
             {active === "1" ? <RoomPolicies /> : <AmenityServices />}
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };
