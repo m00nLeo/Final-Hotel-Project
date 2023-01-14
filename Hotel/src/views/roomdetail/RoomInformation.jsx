@@ -300,7 +300,7 @@ const RoomInformation = () => {
                     </label>
 
                     <input
-                      className=" inline-block box-border w-full bg-white text-primary font-extralight border border-gray-200 rounded py-3 px-4 pb-2 leading-tight focus:outline-none focus:bg-gray-200"
+                      className=" inline-block box-border w-full bg-white text-primary font-extralight border border-gray-200 rounded py-3 px-4 pb-2 leading-tight focus:outline-none focus:bg-gray-200 focus:border-[#b18c57]"
                       id="checkInDate"
                       type="date"
                       name="checkInDate"
@@ -317,7 +317,7 @@ const RoomInformation = () => {
                       Check-out Date
                     </label>
                     <input
-                      className="appearance-none block w-full bg-white text-primary font-extralight border border-gray-200 rounded py-3 px-4 pb-2 leading-tight focus:outline-none focus:bg-gray-200"
+                      className="appearance-none block w-full bg-white text-primary font-extralight border border-gray-200 rounded py-3 px-4 pb-2 leading-tight focus:outline-none focus:bg-gray-200 focus:border-[#b18c57]"
                       id="checkOutDate"
                       type="date"
                       name="checkOutDate"
@@ -333,7 +333,7 @@ const RoomInformation = () => {
                   <div className="inline-block relative w-full pb-3">
                     <select
                       defaultValue="Adults"
-                      className=" block appearance-none w-full bg-white text-primary font-extralight border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 pr-8 rounded shadow focus:shadow-outline"
+                      className=" block appearance-none w-full bg-white text-primary font-extralight border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 pr-8 rounded shadow focus:shadow-outline focus:border-[#b18c57]"
                     >
                       <option>Adults</option>
                       <option>1</option>
@@ -357,7 +357,7 @@ const RoomInformation = () => {
                   <div className="inline-block relative w-full pb-5">
                     <select
                       defaultValue="Children"
-                      className=" block appearance-none w-full bg-white text-primary font-extralight border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 pr-8 rounded shadow focus:shadow-outline"
+                      className=" block appearance-none w-full bg-white text-primary font-extralight border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 pr-8 rounded shadow focus:shadow-outline focus:border-[#b18c57]"
                     >
                       <option>Children</option>
                       <option>1</option>
