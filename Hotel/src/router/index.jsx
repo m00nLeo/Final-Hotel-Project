@@ -6,11 +6,13 @@ import Contact from "../views/contact";
 import Reservation from "../views/reservation";
 import AboutHotel from "../views/about";
 import RoomDetail from "../views/roomdetail";
+import NotFound from "../views/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",

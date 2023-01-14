@@ -68,7 +68,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`mx-auto px-4 py-2 lg:px-28 fixed text-white z-20 w-full font-subHeading ${
+      className={`mx-auto sm:px-4 py-2 lg:px-28 fixed text-white z-20 w-full font-subHeading ${
         colorChange ? "bg-white bg-opacity-80 lg:text-black" : ""
       }`}
     >
