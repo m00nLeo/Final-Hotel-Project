@@ -1,6 +1,7 @@
 import React from "react";
 import SubHero from "../contact/SubHero";
 import RoomsAndSuites from "../homepage/RoomsAndSuites";
+import Services from "../homepage/Services";
 import RoomInformation from "./RoomInformation";
 
 const RoomDetail = () => {
@@ -13,7 +14,8 @@ const RoomDetail = () => {
           {/* Content */}
           <SubHero title="Room Detail" path="Detail" />
           <RoomInformation />
-          <RoomsAndSuites />
+          <RoomsAndSuites title="You Might Also Like" />
+          <Services />
         </div>
       </div>
     </div>
