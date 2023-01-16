@@ -1,565 +1,338 @@
 import React from "react";
-import { HiOutlineCheck } from "react-icons/hi";
-import { CiLocationOn } from "react-icons/ci";
+import { CiLocationOn, CiSearch } from "react-icons/ci";
 import { BsTelephone } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
+import ReservationForm from "../../components/common/ReservationForm";
+import GroupsOfButton from "../../components/common/GroupsOfButton";
+import ItemList from "../../components/common/ItemList";
 
-const AboutUs = () => {
+const FacilitiesAmenities = () => {
+  const Languages = ["English", "French", "Chinese"];
+  const Internet = ["Wi-Fi in public areas", "Free Wi-Fi in all rooms"];
+  const Accessibility = [
+    "Wheelchair accessible",
+    "Facilities for disabled guest ",
+    "Elevator",
+  ];
+  const Relax = [
+    "Ticket services",
+    "Swimming pool [indoor]",
+    "Mini golf course",
+    "Steamroom",
+    "Casino",
+    "Spa",
+    "Garden",
+    " Sauna",
+    "Tours",
+    "Massage",
+    "Hot tub",
+    "Fitness center",
+  ];
+  const Fooddrink = [
+    "Breakfast [free]",
+    "Coffee shop",
+    "Restaurants",
+    "Kitchen",
+    "Poolside bar",
+    "BBQ facilities",
+    "Bar",
+    "Room service [24-hour]",
+  ];
+  const Services = [
+    "Pets allowed",
+    "Dry cleaning",
+    "Luggage storage",
+    "Daily housekeeping",
+    "Smoking area",
+    "Library",
+    "Currency exchange",
+    "Smoke-free property",
+    "Security [24-hour]",
+    "Laundry service",
+    "Gift/souvenir shop",
+    "Concierge",
+    "Safety deposit boxes",
+    "Front desk [24-hour]",
+    "Check-in/out [private]",
+    "Check-in/out [express]",
+  ];
+  const Available = [
+    "Free instant coffee",
+    "Slippers",
+    "Telephone",
+    "Free welcome drink",
+    "Hair dryer",
+    "Toiletries",
+    "Coffee/tea maker",
+    "In-room safe box",
+    "Towels",
+    "Complimentary tea",
+    "Mini bar",
+    "Umbrella",
+    "Daily newspaper",
+    "Refrigerator",
+    "Wake-up service",
+    "Desk",
+    "Satellite/cable channels",
+    "Wi-Fi [free]",
+    "Free bottled water",
+    "Shower",
+    "Clothes rack",
+    "Alarm clock",
+    "Air conditioning",
+  ];
+  const Forkids = [
+    "Swimming pool [kids]",
+    "Family room",
+    "Babysitting service",
+  ];
+  const Gettingaround = [
+    "Rental car",
+    "Car park [on-site]",
+    "Car park [free of charge]",
+  ];
+
+  <ItemList />;
+
   return (
-    <div className="px-12 py-12  bg-[#FEF7F3] mx-auto max-h-screen-xl ">
-      <div>
-        <p className="text-[#6c757d] text-xl font-sans-serif">
-          The e-commerce market is fiercely competitive, any hotel that creates
-          a highlight on the website will attract the attention of customers.
-          Video is an element that cannot be ignored. Video introducing the
-          hotel will bring the image of the hotel to visitors in a true and
-          vivid way. In this article, elysia shares 8 tips for economical and
-          even inexpensive hotels in creating authentic and engaging videos for
-          customers, contributing to improving the effectiveness of hotel
-          marketing strategies. .
-        </p>
-      </div>
-      <div>
-        <iframe
-          className="py-4 w-full"
-          height="500"
-          src="https://www.youtube.com/embed/9GbLTTGsLyc"
-          title="YouTube video player"
-          allow=" "
-          allowFullScreen
-        ></iframe>
-      </div>
-      <div className="w-full">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 h-16 gap-2  ">
-          <button className="  border-gray-200 border font-medium bg-[#f8f9fa]">
-            Facilities & Amenities
-          </button>
-          <button className="  border-gray-200 border font-medium  bg-[#f8f9fa] ">
-            What's nearby
-          </button>
-          <button className=" border-gray-200 border font-medium  bg-[#f8f9fa] ">
-            Guest policies
-          </button>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-6 mb-2  ">Languages spoke</h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]  " />
-            English
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            French
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Chinese
-          </p>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">Internet access</h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2">
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Wi-Fi in public areas
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Free Wi-Fi in all rooms
-          </p>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">Accessibility</h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2  ">
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Wheelchair accessible
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Facilities for disabled guest
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Elevator
-          </p>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">
-          Things to do, ways to relax
-        </h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Ticket services
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Mini golf course
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Casino
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Garden
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Tours
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Hot tub
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Swimming pool [indoor]
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Steamroom
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Spa
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Sauna
-          </p>
-          <p className="flex items-center gap-1   text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Massage
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Fitness center
-          </p>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">
-          Dining, drinking, and snacking
-        </h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Breakfast[free]
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Coffee shop
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Kitchen
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            BBQ facilities
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Room service[24-hour]
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Restaurants
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Poolside bar
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Bar
-          </p>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">
-          Services and Conveniences
-        </h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Pets allowed
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Luggage storage
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Smoking area
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Currency exchange
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Securrity [24-hour]
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Gift/souvennir shop
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Safety deposit boxes
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Check-in/out [private]
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Dry cleaning
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Daily housekeeping
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Library
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Smoke-free property
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Laundry service
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Concierge
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Front desk[24-hour]
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Check-in/out[express]
-          </p>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">
-          Available in all rooms
-        </h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Free instant coffee
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Telephone
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Hair dryer
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Coffee/tea maker
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Tower
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Wake-up service
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            satellite/cable channels
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Free bottled water
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Clothes rack
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Air conditioning
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Slippers
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Free welcome drink
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Toiletries
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            In-roon safe box
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Complimentary tea
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Umbrella
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Refrigerator
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Desk
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Wi-Fi[free]
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Shower
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Alarm clock
-          </p>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">For the kids</h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <>
-            <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-              <HiOutlineCheck className="text-[#b18c57]" />
-              Swimming pool [kids]
-            </p>
-            <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-              <HiOutlineCheck className="text-[#b18c57]" />
-              Babysitting service
-            </p>
-            <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-              <HiOutlineCheck className="text-[#b18c57]" />
-              Family room
-            </p>
-          </>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">Getting around</h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Rental car
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Car park [free of charge]
-          </p>
-          <p className="flex items-center gap-1  text-gray-500 font-thin text-lg">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Car park [on-site]
-          </p>
-        </div>
-      </div>
-      <div className="bg-[#FEF4E8] mt-6  text-black max-auto max-h-screen-xl">
-        <div>
-          <div className="">
-            <img
-              className="w-full h-16 mb-4 pt-4"
-              src="https://360.agencewebcom.com/web/uploads/api/site-413/42a9f5a2934936263e0ccf2d2799f5d2124cc206.svg"
-              alt=""
-            />
-          </div>
-          <div className=" flex flex-col items-center justify-center">
-            <span className="flex items-center gap-6">
-              <CiLocationOn className="text-[#987648]  w-8 h-10" />
-            </span>
-            <h className="text-2xl text-[#343a40] mb-4 ">Address</h>
+    <div className="">
+      {/* Amenity Services */}
+      <ItemList title="Languages spoken" ListItem={Languages} />
+      <ItemList title="Internet access" ListItem={Internet} />
+      <ItemList title="Accessibility" ListItem={Accessibility} />
+      <ItemList title="Things to do, ways to relax" ListItem={Relax} />
+      <ItemList title="Dining, drinking, and snacking" ListItem={Fooddrink} />
+      <ItemList title="Services and Conveniences" ListItem={Services} />
+      <ItemList title="Available in all rooms" ListItem={Available} />
+      <ItemList title="For the kids" ListItem={Forkids} />
+      <ItemList title="Getting around" ListItem={Gettingaround} />
+    </div>
+  );
+};
 
-            <p className="text-gray-600 pl-9 mb-4">
-              202 Hoang Van Thu, Ward 9, District 1, Ho Chi Minh City.
-            </p>
-          </div>
-          <div className="grid lg:grid-cols-2 md:grid-cols-1 ">
-            <div className="flex flex-col items-center justify-center">
-              <span className="flex items-center  gap-6">
-                <BsTelephone className="text-[#987648] mb-4 w-8 h-7" />
-              </span>
-              <h2 className="text-2xl  text-[#343a40] mb-4">Phone</h2>
-              <p className="text-gray-600 pl-9  mb-4">+81 (0) 968150014</p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <span className="flex items-center  gap-6">
-                <AiOutlineMail className="text-[#987648] mb-4 w-8 h-7" />
-              </span>
-              <h2 className="text-2xl  text-[#343a40] mb-4">Email</h2>
+const NearBy = () => {
+  const popular = [
+    "Musee d'Orsay Museum 2.5 km",
+    "La Sainte-Chapelle 2.7 km",
+    "Champs-Elysees 3.7 km",
+    "Arc de Triomphe 4.4 km",
+    "Montmartre 5.7 km",
+    "Sacre-Coeur de Montmartre 5.8km",
+  ];
+  const nearby = [
+    "Place de Séoul 160 m",
+    "Amf Bowling de Montparnasse 170 m",
+    "Jardin Atlantique Paris 180 m",
+    "Eglise Notre Dame du Travail 250 m",
+    "Hazar and Co. 260 m",
+    "Bootlegger 310 m",
+    "Espace Krajcberg 380 m",
+    "Theatre Bobino 380 m",
+    "Pernety Metro Station 410 m",
+    "Montparnasse Station 430m",
+  ];
 
-              <p className="text-gray-600 mb-3 pl-9">
-                customer.helpdesk@elysia.com
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <h5 className=" flex items-center gap-1 text-[#343f52] text-xl mt-4 mb-2">
-          <HiOutlineCheck className="text-[#b18c57]  " />
-          Popular landmarks
-        </h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]  " />
-            Musee d'Orsay Museum 2.5 km
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]  " />
-            La Sainte-Chapelle 2.7 km
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]  " />
-            champs-Elysees 3.7 Km
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]  " />
-            Arc de Triomphe 4.4 km
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]  " />
-            Montmartre 5.7 km
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]  " />
-            Basilique du Saacre-Coeur de Montmartre 5.8 km
-          </p>
-        </div>
-        <h5 className=" text-[#343f52] text-xl mt-4 mb-2">Nearby landMarks</h5>
-        <div className="grid  lg:grid-cols-3 md:grid-cols-2 ">
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Place de seoul 160m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Amf Bowling de Montparnasse 170m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            jardin Atlantique Paris 180m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Eglise Notre Dame du Travail 250m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Harzar and co. 260m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Bootlegger 310m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Espace Krajcberg 380m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Theatre Bobino 380m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Pernety Metro Station 410m
-          </p>
-          <p className="flex items-center gap-1 text-gray-500 font-thin text-lg ">
-            <HiOutlineCheck className="text-[#b18c57]" />
-            Montparnasse - Bienvenue Metro Station 430
-          </p>
-        </div>
-      </div>
-      <div className="max-auto max-h-screen-xl ">
-        <h5 className="px-6 mt-8 mb-3 text-xl text-gray-800 font-serif">
-          Children and extra beds
-        </h5>
-        <p className="px-6 mb-3 font-light  text-gray-600">
-          Extra beds are dependent on the room you choose. please check the
-          individual room capacity for more detail
-        </p>
-        <p className="px-6 py-3 font-light  text-gray-600">
-          {" "}
-          All children are welcome
-        </p>
-        <div className="relative px-6">
-          <table className="  border-[#edeff3] w-full text-md text-left text-gray-500  dark:text-gray-400 ">
-            <thead className="text-black border-l uppercase bg-[#f5f5f5] font-serif">
-              <tr className="border-b-4 ">
-                <th className="px-6 py-3 ">Gues's age</th>
-                <th className="px-6 py-3">Extraa bed</th>
+  <ItemList />;
+
+  return (
+    <div className="">
+      {/* What's Nearby */}
+      <ItemList title="Popular landmarks" ListItem={popular} />
+      <ItemList title="Nearby landmarks" ListItem={nearby} />
+    </div>
+  );
+};
+
+const GuestPolicies = () => {
+  return (
+    <div>
+      {/* Sub Intro */}
+      <p className="font-h2 text-[18px] pt-4 pb-2 text-primary">
+        Children and extra beds
+      </p>
+      <p className="font-subHeading text-primary font-extralight tracking-wide leading-6">
+        Extra beds are dependent on the room you choose. Please check the
+        individual room capacity for more details.
+        <br />
+        <br />
+        All children are welcome.
+      </p>
+
+      {/* Table */}
+      <div className="my-6">
+        <div className="">
+          <table className="table-auto w-full border-[1px] ">
+            {/* <!-- head --> */}
+
+            <thead className="border-b-2 border-slate-300 bg-slate-100">
+              <tr className="grid grid-cols-2 ">
+                <th className="border-r-[1px] p-4  ">Guest's age </th>
+                <th className="p-4">Extra bed</th>
               </tr>
             </thead>
-            <tbody className="font-thin ">
-              <tr className=" border">
-                <td>
-                  <div className=" flex px-6 py-3 text-gray-800 mb-16">
-                    <strong>Infant 0-2 year(s)</strong>
-                  </div>
+
+            <tbody>
+              {/* <!-- row 1 --> */}
+              <tr className="grid grid-cols-2  border-b-[1px]">
+                <td className="border-r-[1px] p-4 font-medium text-primary pr-6">
+                  Infant 0-2 year(s)
                 </td>
-                <td className="border">
-                  <div>
-                    <div className="px-6 py-3">
-                      Stay for free if using existing bedding.{" "}
-                    </div>
-                    <div className="px-6 py-3">
-                      Baby cot/crib avaible upon request
-                    </div>
-                  </div>
+                <td className="text-primary p-4 font-extralight">
+                  Stay for free if using existing bedding. Baby cot/crib
+                  available upon request
                 </td>
               </tr>
-              <tr className="border">
-                <td>
-                  <div className="px-6 py-3  text-gray-800 mb-12">
-                    <strong>Children 3-11 year(s)</strong>
-                  </div>
+              {/* <!-- row 2 --> */}
+              <tr className="grid grid-cols-2 border-b-[1px]">
+                <td className="border-r-[1px] p-4 font-medium text-primary pr-6">
+                  Children 3-11 year(s)
                 </td>
-                <td className="border">
-                  <div>
-                    <div className="px-6 py-3">Must use an extra bed</div>
-                    <div className="px-6 py-3">
-                      if you need an extra bed, it will incur an additional
-                      charge
-                    </div>
-                  </div>
+                <td className="text-primary p-4 font-extralight">
+                  Must use an extra bed If you need an extra bed, it will incur
+                  an additional charge.
                 </td>
               </tr>
-              <tr className="border">
-                <td>
-                  <div>
-                    <strong className="px-6 py-3  text-gray-800">
-                      Guests 12 years and older are considered as adults
-                    </strong>
-                  </div>
+              {/* <!-- row 3 --> */}
+              <tr className="grid grid-cols-2">
+                <td className="border-r-[1px] p-4 font-medium text-primary pr-6">
+                  Guests 12 years and older are considered as adults
                 </td>
-                <td className="border">
-                  <div>
-                    <div className="px-6 py-3">
-                      Must use an extra bed which will incur an additional
-                      charge
-                    </div>
-                  </div>
+                <td className="text-primary p-4 font-extralight">
+                  Must use an extra bed which will incur an additional charge.
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <h5 className="px-6 mt-6 mb-3 text-xl text-gray-800 font-serif">
-          Others
-        </h5>
-        <p className="px-6  text-gray-500">
-          There is no window room type Cozy Deluxe Double and Twin Room. When
-          booking more than 5 rooms, diffrent policies and additional
-          supplements may apply
+
+        {/* Other */}
+        <p className="font-h2 text-[18px] pt-4 pb-2 text-primary"> Others</p>
+        <p className="font-subHeading text-primary font-extralight tracking-wide leading-6">
+          There is no window in room type Cozy Deluxe Double and Twin Room. When
+          booking more than 5 rooms, different policies and additional
+          supplements may apply.
         </p>
+      </div>
+    </div>
+  );
+};
+
+const listOfBtn = [
+  { btnName: "Facilities & Amenities", details: <FacilitiesAmenities /> },
+  { btnName: "What's nearby", details: <NearBy /> },
+  { btnName: "Guest policies", details: <GuestPolicies /> },
+];
+
+const AboutUs = () => {
+  return (
+    <div>
+      {/* Container */}
+      <div className=" p-4 mx-auto max-w-screen-xl ">
+        {/* Layout */}
+        <div className="lg:grid lg:grid-cols-4 gap-5">
+          {/* Content */}
+
+          <div className="lg:col-span-3">
+            {/* Left-side Content */}
+            <div className="mb-6">
+              {/* INTRO */}
+              <p className="text-primary font-subHeading text-base text-justify pt-6 tracking-wide font-light">
+                Welcome to 5-star luxury and dedicated service at Elysia Saigon.
+                Modern design with classic royal style will bring a magnificent
+                experience for those people who have a passion for travel. Let’s
+                awaken your spirit. Create a whole new lifestyle with our
+                service; from the most comfortable room to a sumptuous feast.
+                <br />
+                <br />
+                Its extensive gastronomic offerings feature several restaurants
+                and bars; and super wellness facilities, complemented by the
+                magnificent view of Ho Chi Minh city. Everything is accompanied
+                by the urban and cosmopolitan spirit.
+                <br />
+                <br />
+                At Elysia Hotel - the iconic hotel that offers 280 luxurious
+                rooms and suites that feature stylish interiors and high class.
+                Soothing hues in each room create a relaxing ambiance that
+                provides business and leisure travelers an indulgent refuge
+                after a day of exploring Ho Chi Minh City.
+              </p>
+              {/* VIDEO */}
+              <iframe
+                className="pt-6 w-full"
+                height="500"
+                src="https://www.youtube.com/embed/uztV7G83sB0"
+                allowFullScreen
+              ></iframe>
+            </div>
+            {/* ADVANCED OPTIONS */}
+            <div className="">
+              {/* Group of Buttons */}
+              <GroupsOfButton listOfBtn={listOfBtn} />
+            </div>
+          </div>
+
+          <div>
+            {/* Right-side Content */}
+            {/* CONTACT */}
+            <div className="bg-beige mt-6  text-black max-auto max-h-screen-xl">
+              <div>
+                {/* Logo */}
+                <div className="py-8">
+                  <img
+                    className="w-full h-16"
+                    src="https://360.agencewebcom.com/web/uploads/api/site-413/42a9f5a2934936263e0ccf2d2799f5d2124cc206.svg"
+                    alt=""
+                  />
+                </div>
+
+                {/* Address */}
+                <div className=" flex flex-col items-center justify-center pb-3">
+                  <CiLocationOn className="text-light text-3xl" />
+                  <p className="font-subHeading text-primary font-medium text-xl pt-3">
+                    Address
+                  </p>
+
+                  <p className="font-subHeading text-primary font-light w-3/5 text-center leading-6 pb-3 ">
+                    202 Hoang Van Thu, Ward 9, District 1, Ho Chi Minh City.
+                  </p>
+                </div>
+
+                <div className="md:grid md:grid-cols-2 lg:flex lg:flex-col">
+                  {/* Contact */}
+                  {/* Phone */}
+                  <div className=" flex flex-col items-center justify-center pb-3">
+                    <BsTelephone className="text-light text-2xl" />
+                    <p className="font-subHeading text-primary font-medium text-xl pt-3">
+                      Phone
+                    </p>
+                    <p className="font-subHeading text-primary font-light w-3/5 text-center leading-6 pb-3 ">
+                      +84 (0) 968150014
+                    </p>
+                  </div>
+
+                  {/* Email */}
+                  <div className=" flex flex-col items-center justify-center pb-3 ">
+                    <AiOutlineMail className="text-light text-2xl" />
+                    <p className="font-subHeading text-primary font-medium text-xl pt-3">
+                      Email
+                    </p>
+                    <p className="font-subHeading text-primary font-light w-3/5 text-center  leading-6 pb-3 ">
+                      customer.helpdesk <br /> @elysia.com
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RESERVATION FORM */}
+            <div className=" bg-beige my-6 p-8 justify-center">
+              <h2 className="font-subHeading text-primary font-normal text-3xl pt-3">
+                Reservation
+              </h2>
+              <ReservationForm icon={<CiSearch />} buttonName="Check Rooms" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
