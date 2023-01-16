@@ -1,5 +1,6 @@
 import React from "react";
 import SubHero from "../contact/SubHero";
+import RoomsAndSuites from "../homepage/RoomsAndSuites";
 import AboutUs from "./AboutUs";
 
 const AboutHotel = () => {
@@ -8,10 +9,11 @@ const AboutHotel = () => {
       {/* Container */}
       <div className="font-subHeading">
         {/* Layout */}
-        <div className="">
+        <div>
           {/* Content */}
           <SubHero title="About Us" path="About" />
           <AboutUs />
+          <RoomsAndSuites />
         </div>
       </div>
     </div>

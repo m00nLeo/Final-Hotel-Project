@@ -102,7 +102,7 @@ const RoomsSlider = () => {
           <SwiperSlide key={room.id}>
             <div className="relative group" key={room.id}>
               <img
-                className="opacity-60 h-[700px] md:h-[600px] xl:h-96 w-full object-center"
+                className="opacity-60 h-[600px] md:h-[600px] sm-[500px] lg:h-96 w-full object-center"
                 src={room.imageUrl}
                 alt=""
               />

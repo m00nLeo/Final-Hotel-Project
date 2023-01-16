@@ -7,10 +7,13 @@ import {
   FaPeopleArrows,
   FaSmokingBan,
   FaHamburger,
-  FaCheck,
   FaCalendarAlt,
 } from "react-icons/fa";
+import { HiOutlineCheck } from "react-icons/hi";
+
 import Container from "../../components/common/Container";
+import GroupsOfButton from "../../components/common/GroupsOfButton";
+import ReservationForm from "../../components/common/ReservationForm";
 
 const AmenityServices = () => {
   const Clothing = [
@@ -37,7 +40,6 @@ const AmenityServices = () => {
     "Humidifier",
     "Fan",
     "Linens",
-    "Slippers",
     "Alarm clock",
     "Air conditioning",
   ];
@@ -86,7 +88,7 @@ const AmenityServices = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
           {amenityItem.map((item) => (
             <div className="gap-2 items-center" key={item}>
-              <FaCheck className=" inline-block mr-3 text-light " />
+              <HiOutlineCheck className=" inline-block mr-3 text-light " />
               <span className="font-subHeading text-primary font-extralight leading-3">
                 {item}
               </span>
@@ -191,28 +193,22 @@ const RoomInformation = () => {
     return (
       <div className="lg:grid lg:grid-cols-2">
         {Available.map((item) => (
-          <div className="gap-3 items-center leading-8" key={item}>
-            <FaCheck className=" inline-block mr-3 text-light " />
-            <span className="font-subHeading text-primary font-extralight tracking-wide">
+          <div className="flex items-center leading-8" key={item}>
+            <HiOutlineCheck className=" inline-block mr-3 text-light " />
+            <div className="font-subHeading text-primary font-extralight tracking-wide">
               {item}
-            </span>
+            </div>
           </div>
         ))}
       </div>
     );
   };
 
-  const today = new Date();
-  const arrday = today.toISOString().split("T")[0];
-  const numberOfDaysToAdd = 1;
-  const date = today.setDate(today.getDate() + numberOfDaysToAdd);
-  const leaveday = new Date(date).toISOString().split("T")[0]; // yyyy-mm-dd
+  const listOfBtn = [
+    { btnName: "Room Policies", details: <RoomPolicies /> },
+    { btnName: "Amenity Services", details: <AmenityServices /> },
+  ];
 
-  const [active, setActive] = useState("1");
-
-  const handleClick = (e) => {
-    setActive(e.target.id);
-  };
   return (
     <div>
       {/* Container */}
@@ -277,165 +273,29 @@ const RoomInformation = () => {
 
             {/* Room Booking Form */}
             <div className=" bg-beige my-6 p-8 justify-center">
-              <form className="w-full max-w-lg  ">
-                <div className="">
-                  <h3 className="font-subHeading text-primary font-extralight tracking-wide">
-                    Rates Start From
-                  </h3>
-                  <p>
-                    <span className=" text-xl font-bold text-light tracking-wide">
-                      $119.00
-                    </span>
-                    / Night
-                  </p>
-                </div>
+              <div className="">
+                <h3 className="font-subHeading text-primary font-extralight tracking-wide">
+                  Rates Start From
+                </h3>
+                <p>
+                  <span className=" text-xl font-bold text-light tracking-wide">
+                    $119.00
+                  </span>
+                  / Night
+                </p>
+              </div>
 
-                <div className="flex flex-wrap  ">
-                  <div className="w-full pt-4 pb-3 ">
-                    <label
-                      className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                      htmlFor="grid-first-name"
-                    >
-                      Check-in Date
-                    </label>
-
-                    <input
-                      className=" inline-block box-border w-full bg-white text-primary font-extralight border border-gray-200 rounded py-3 px-4 pb-2 leading-tight focus:outline-none focus:bg-gray-200 focus:border-[#b18c57]"
-                      id="checkInDate"
-                      type="date"
-                      name="checkInDate"
-                      placeholder="Choose a day"
-                      defaultValue={arrday}
-                    />
-                  </div>
-
-                  <div className="w-full  mb-6 ">
-                    <label
-                      className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                      htmlFor="grid-first-name"
-                    >
-                      Check-out Date
-                    </label>
-                    <input
-                      className="appearance-none block w-full bg-white text-primary font-extralight border border-gray-200 rounded py-3 px-4 pb-2 leading-tight focus:outline-none focus:bg-gray-200 focus:border-[#b18c57]"
-                      id="checkOutDate"
-                      type="date"
-                      name="checkOutDate"
-                      placeholder="Choose a day"
-                      defaultValue={leaveday}
-                    />
-                  </div>
-                </div>
-
-                {/* Options */}
-                <div>
-                  {/* Adult */}
-                  <div className="inline-block relative w-full pb-3">
-                    <select
-                      defaultValue="Adults"
-                      className=" block appearance-none w-full bg-white text-primary font-extralight border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 pr-8 rounded shadow focus:shadow-outline focus:border-[#b18c57]"
-                    >
-                      <option>Adults</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg
-                        className="fill-current h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                      </svg>
-                    </div>
-                  </div>
-
-                  {/* Children */}
-                  <div className="inline-block relative w-full pb-5">
-                    <select
-                      defaultValue="Children"
-                      className=" block appearance-none w-full bg-white text-primary font-extralight border border-gray-200 py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-gray-200 pr-8 rounded shadow focus:shadow-outline focus:border-[#b18c57]"
-                    >
-                      <option>Children</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg
-                        className="fill-current h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Submit button */}
-                <div className="">
-                  <button className=" w-full bg-light mx-auto py-3 mb-3 justify-center border-t-orange-100 rounded-sm">
-                    <div className="flex items-center gap-2 font-extralight text-white justify-center">
-                      <FaCalendarAlt className="" />
-                      Book this room
-                    </div>
-                  </button>
-
-                  <div className="px-4 py-2">
-                    <ul className=" text-light font-extralight list-disc tracking-wide">
-                      <li>Special Offers</li>
-                      <li>Best Rate Guarantee</li>
-                    </ul>
-                  </div>
-                </div>
-              </form>
+              <ReservationForm
+                icon={<FaCalendarAlt />}
+                buttonName="Book this room"
+              />
             </div>
           </div>
           {/* Button - Policies & Amenity Services */}
-          <div className="">
-            <div className="flex md:gap-2 border-b-gray-100  border-b-[1px]">
-              <button
-                key={1}
-                className={`md:w-1/4 py-4 
-                   lg:hover:text-slate-500/50  md:hover:text-slate-500/50 
-                 w-full font-subHeading font-semibold tracking-wider ${
-                   active === "1"
-                     ? " md:border-gray-100  bg-white  text-light md:border-x-2 md:border-t-2"
-                     : "bg-slate-100 text-primary "
-                 }`}
-                id={"1"}
-                onClick={handleClick}
-              >
-                Room Policies
-              </button>
 
-              <button
-                key={2}
-                className={`md:w-1/4 py-4 
-                   lg:hover:text-slate-500/50  md:hover:text-slate-500/50 
-                 w-full font-subHeading font-semibold tracking-wider ${
-                   active === "2"
-                     ? " md:border-gray-100  bg-white  text-light md:border-x-2 md:border-t-2"
-                     : "bg-slate-100 text-primary "
-                 }`}
-                id={"2"}
-                onClick={handleClick}
-              >
-                Amenity Services
-              </button>
-            </div>
-          </div>
+          <GroupsOfButton listOfBtn={listOfBtn} />
 
           {/* Content Details - Policies & Amenity Services*/}
-          <div className="mb-8">
-            {active === "1" ? <RoomPolicies /> : <AmenityServices />}
-          </div>
         </div>
       </Container>
     </div>

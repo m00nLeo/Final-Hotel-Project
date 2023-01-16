@@ -11,7 +11,7 @@ const RoomDetail = () => {
         {/* Layout */}
         <div className="">
           {/* Content */}
-          <SubHero title="Room Deatil" path="Detail"/>
+          <SubHero title="Room Detail" path="Detail" />
           <RoomInformation />
           <RoomsAndSuites />
         </div>
