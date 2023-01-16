@@ -133,7 +133,7 @@ const RoomsSlider = () => {
   );
 };
 
-const RoomsAndSuites = () => {
+const RoomsAndSuites = ({title="Rooms & Suites"}) => {
   return (
     <div className=" bg-[#222222] py-10">
       {/* container */}
@@ -142,7 +142,7 @@ const RoomsAndSuites = () => {
           {/* layout */}
           <div className="text-white items-center tracking-wide">
             <h1 className="text-center text-2xl lg:text-4xl mb-6 font-h2">
-              Rooms & Suites
+              {title}
             </h1>
             <p className="text-center text-base lg:text-xl mb-8 font-normal text-gray-400">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.

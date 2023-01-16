@@ -251,7 +251,7 @@ const SelectRoom = () => {
 const OptRooms = () => {
   return (
     <>
-      <div className="border mb-4">
+      <div className="border mb-4 dark:border-gray-200/50">
         <Room
           button={
             <button className="bg-[#b18c57] h-10 px-4 hover:bg-[#b18c57]/75 flex gap-2 items-center text-white justify-center">
