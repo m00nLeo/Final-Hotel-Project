@@ -361,7 +361,7 @@ const Select = () => {
 
                   {/* Next step */}
                   <Link
-                    to=""
+                    to="/reservation/information"
                     className="flex gap-2 items-center justify-center bg-[#b18c57] text-white w-40 h-10 text-base"
                   >
                     Next Step <BsArrowRightShort />

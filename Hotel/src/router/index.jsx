@@ -7,6 +7,8 @@ import Reservation from "../views/reservation";
 import AboutHotel from "../views/about";
 import RoomDetail from "../views/roomdetail";
 import NotFound from "../views/NotFound";
+import CustomerInfo from "../views/reservation/customerInfo/CustomerInfo";
+import Completed from "../views/reservation/completed/Completed";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
       {
         path: "/reservation",
         element: <Reservation />,
+      },
+      {
+        path: "/reservation/information",
+        element: <CustomerInfo />,
+      },
+      {
+        path: "/reservation/complete",
+        element: <Completed />,
       },
     ],
   },
