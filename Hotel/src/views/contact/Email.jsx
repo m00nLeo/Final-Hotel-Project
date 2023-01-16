@@ -41,7 +41,7 @@ const Email = () => {
             <h3 className="text-xl font-bold text-[#b18c57] uppercase">
               Terms, conditions and privacy policy
             </h3>
-            <p className="py-4 text-[#fff9f1]">
+            <p className="py-4 dark:text-[#fff9f1]">
               The official hotel check in time is 03.00 pm, check out time is
               12.00 pm (noon).
               <br />
