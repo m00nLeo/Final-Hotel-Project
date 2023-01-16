@@ -10,15 +10,15 @@ const GroupsOfButton = ({ listOfBtn }) => {
     <>
       <div>
         {/* Group of Btns */}
-        <div className=" md:flex md:gap-2 ">
+        <div className="flex lg:w-4/5">
           {listOfBtn.map((btn, id) => {
             return (
               <button
                 key={id}
-                className={` md:w-full p-4 w-full font-subHeading font-semibold tracking-wider ${
+                className={` md:w-full p-4 w-full font-subHeading font-semibold tracking-wider border-[#b18c57]/30 truncate ${
                   active === id
-                    ? "bg-white text-light"
-                    : "bg-slate-50 text-primary "
+                    ? "bg-white dark:bg-[#f0ebe5] dark:border-light text-light border-2 border-b-0 "
+                    : "bg-slate-100 dark:bg-inherit text-primary dark:text-white border-b-2"
                 }`}
                 id={id}
                 onClick={handleClick}

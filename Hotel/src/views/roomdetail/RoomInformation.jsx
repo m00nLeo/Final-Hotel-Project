@@ -83,13 +83,13 @@ const AmenityServices = () => {
   const ItemList = ({ title, amenityItem }) => {
     return (
       <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary">{title} </h2>
+        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary dark:text-gray-300 ">{title} </h2>
         {/* List */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
           {amenityItem.map((item) => (
             <div className="gap-2 items-center" key={item}>
               <HiOutlineCheck className=" inline-block mr-3 text-light " />
-              <span className="font-subHeading text-primary font-extralight leading-3">
+              <span className="font-subHeading text-primary dark:text-gray-400 font-extralight leading-3">
                 {item}
               </span>
             </div>
@@ -118,14 +118,14 @@ const RoomPolicies = () => {
     <div>
       {/* Room Policy */}
       <div className="py-6 ">
-        <p className=" text-primary text-lg pb-3 ">Check-in/out Policy:</p>
+        <p className=" text-primary dark:text-gray-300  text-lg pb-3 ">Check-in/out Policy:</p>
         <ul className=" list-square px-7 font-extralight pb-3">
           <li>Check in: from 14:00;</li>
           <li>Check out: no later than 12:00;</li>
           <li>Early check-in or late check out will be upon availability.</li>
         </ul>
 
-        <p className=" text-primary text-lg pb-3 ">
+        <p className=" text-primary dark:text-gray-300 text-lg pb-3 ">
           Cancellation/Amendment Policy:
         </p>
         <ul className=" list-square px-7 font-extralight pb-3">
@@ -139,7 +139,7 @@ const RoomPolicies = () => {
           </li>
         </ul>
 
-        <p className=" text-primary text-lg pb-3 ">Payment method:</p>
+        <p className=" text-primary dark:text-gray-300 text-lg pb-3 ">Payment method:</p>
         <ul className=" list-square px-7 font-extralight pb-3">
           <li>By cash</li>
           <li>
@@ -148,7 +148,7 @@ const RoomPolicies = () => {
           </li>
         </ul>
 
-        <p className=" text-primary text-lg pb-3 ">
+        <p className=" text-primary dark:text-gray-300 text-lg pb-3 ">
           Children and Extra Adult Policy:
         </p>
         <ul className=" list-square px-7 font-extralight pb-3">
@@ -172,9 +172,9 @@ const RoomPolicies = () => {
 const RoomInformation = () => {
   const RoomInfo = ({ icon, para }) => {
     return (
-      <div className="pb-2 text-lg flex gap-2 items-center font-subHeading text-primary font-extralight tracking-wide">
+      <div className="pb-2 text-lg flex gap-2 items-center font-subHeading text-primary dark:text-light  font-extralight tracking-wide">
         {icon}
-        <p className="font-subHeading text-base text-primary font-extralight tracking-wide">
+        <p className="font-subHeading text-base text-primary dark:text-gray-400 font-extralight tracking-wide">
           {para}
         </p>
       </div>
@@ -195,7 +195,7 @@ const RoomInformation = () => {
         {Available.map((item) => (
           <div className="flex items-center leading-8" key={item}>
             <HiOutlineCheck className=" inline-block mr-3 text-light " />
-            <div className="font-subHeading text-primary font-extralight tracking-wide">
+            <div className="font-subHeading text-primary dark:text-gray-400 font-extralight tracking-wide">
               {item}
             </div>
           </div>
@@ -214,13 +214,13 @@ const RoomInformation = () => {
       {/* Container */}
       <Container fluid={true}>
         {/* Layout */}
-        <div>
+        <div className="pt-8">
           {/* Content */}
           <div className="lg:grid md:grid-cols-4 md:gap-6 md:mb-7">
             {/* Intro */}
             <div className="md:grid md:col-span-3">
               <div>
-                <p className=" font-subHeading text-primary font-extralight tracking-wide text-justify py-6 ">
+                <p className=" font-subHeading text-primary dark:text-gray-300 font-extralight tracking-wide text-justify py-6 ">
                   Enjoy maximum satisfaction and comfort with the most
                   personalised service and the most exclusive products in
                   privileged areas of the hotel.
@@ -236,7 +236,7 @@ const RoomInformation = () => {
 
               {/* Room Info */}
               <div className="pb-4">
-                <h2 className="font-h2 text-2xl py-6 text-primary">
+                <h2 className="font-h2 text-2xl py-6 text-primary dark:text-gray-300 ">
                   Room Information
                 </h2>
                 {/* List info */}
@@ -263,7 +263,7 @@ const RoomInformation = () => {
               <hr />
               {/* Offers */}
               <div className="pb-4">
-                <h2 className="font-h2 text-2xl py-6 text-primary">
+                <h2 className="font-h2 text-2xl py-6 text-primary dark:text-gray-300 ">
                   Available Offers
                 </h2>
                 {/* Offer List */}
