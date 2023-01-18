@@ -2,64 +2,15 @@ import React from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Container from "../../components/common/Container";
+import { useQuery } from "@tanstack/react-query";
+import { getProducts } from "../../../services/productService";
+import GlobalSpinner from "../../components/common/GlobalSpinner";
 
-const RoomList = [
-  {
-    id: 1,
-    title: "Imperial Suite with Balcony City View",
-    price: 250,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://bilurygallery.bithemer.com/assets/img/rooms/r1@2x.jpg",
-  },
-  {
-    id: 2,
-    title: "Executive Deluxe Double or Twin Room",
-    price: 280,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://bilurygallery.bithemer.com/assets/img/rooms/r2@2x.jpg",
-  },
-  {
-    id: 3,
-    title: "Family Suite With Balcony Street View",
-    price: 300,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://bilurygallery.bithemer.com/assets/img/rooms/r3@2x.jpg",
-  },
-  {
-    id: 4,
-    title: "Premium Room with Window City View",
-    price: 350,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://bilurygallery.bithemer.com/assets/img/rooms/r4@2x.jpg",
-  },
-  {
-    id: 5,
-    title: "Family Suite With Balcony Street View",
-    price: 400,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl:
-      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-  },
-  {
-    id: 6,
-    title: "Premium Room with Window City View",
-    price: 350,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl:
-      "https://images.unsplash.com/photo-1605346434674-a440ca4dc4c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-  },
-];
-const RoomsDetail = () => {
+const RoomsDetail = ({ products }) => {
   return (
     <div>
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:mb-4">
-        {RoomList.map((room) => (
+        {products?.map((room) => (
           <div className="relative group mb-4" key={room.id}>
             <img
               className="h-[700px] md:h-[600px] lg:h-[500px] w-full object-center"
@@ -73,10 +24,10 @@ const RoomsDetail = () => {
               <h3 className=" text-white w-5/6 mb-5 text-lg">{room.title} </h3>
               <div className="hidden group-hover:block ">
                 <p className="mb-4 text-sm font-extralight text-white">
-                  Room size: {room.description}
+                  Room size: {`${room.size}, ${room.bed}, ${room.description}`}
                 </p>
                 <div className="flex justify-between">
-                  <Link to="/roomdetail">
+                  <Link to={`/roomdetail/${room.id}`}>
                     <div className="flex items-center w-fit gap-1 text-[#b18c57] hover:text-gray-500 py-2 px-4 content-center ">
                       <p className="text-sm">Detail</p>
                       <span>
@@ -103,6 +54,13 @@ const RoomsDetail = () => {
 };
 
 const RoomsList = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
+    cacheTime: 10 * 1000,
+  });
+  if (isLoading) return <GlobalSpinner />;
+
   return (
     <div className="pt-20">
       <Container fluid={true}>
@@ -116,7 +74,7 @@ const RoomsList = () => {
             molestie reprehendunt mea, ea legimus molestiae cum, partem
             iracundia delicatissimi cum te.
           </p>
-          <RoomsDetail />
+          <RoomsDetail products={data?.data?.products}/>
         </div>
       </Container>
     </div>
