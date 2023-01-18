@@ -66,7 +66,7 @@ const TelephoneBooking = () => {
 
                   <div>
                     <p className="text-lg font-light pb-2">Email</p>
-                    <p lassName="text-xl font-light">Booking@example.com</p>
+                    <p className="text-xl font-light">Booking@example.com</p>
                   </div>
                 </div>
               </div>
@@ -98,8 +98,11 @@ const TelephoneBooking = () => {
                     />
                   </div>
 
-                  <select className="bg-gray-50 text-sm border focus:border-[#b18c57] p-2.5 font-light">
-                    <option selected>Adults</option>
+                  <select
+                    className="bg-gray-50 text-sm border focus:border-[#b18c57] p-2.5 font-light"
+                    defaultValue="default"
+                  >
+                    <option value="default">Adults</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -107,8 +110,11 @@ const TelephoneBooking = () => {
                     <option value="5">5</option>
                   </select>
 
-                  <select className="bg-gray-50 text-sm border focus:border-[#b18c57] p-2.5 font-light">
-                    <option selected>Childrens</option>
+                  <select
+                    className="bg-gray-50 text-sm border focus:border-[#b18c57] p-2.5 font-light"
+                    defaultValue="default"
+                  >
+                    <option value="default">Childrens</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>

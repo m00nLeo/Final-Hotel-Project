@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
 import { BiBed } from "react-icons/bi";
 import {
   FaArrowsAlt,
@@ -10,10 +11,14 @@ import {
   FaCalendarAlt,
 } from "react-icons/fa";
 import { HiOutlineCheck } from "react-icons/hi";
+import { useParams } from "react-router-dom";
+import { getProductsById } from "../../../services/productService";
 
 import Container from "../../components/common/Container";
 import GroupsOfButton from "../../components/common/GroupsOfButton";
 import ReservationForm from "../../components/common/ReservationForm";
+import GlobalSpinner from "../../components/common/GlobalSpinner";
+import { useState } from "react";
 
 const AmenityServices = () => {
   const Clothing = [
@@ -83,7 +88,9 @@ const AmenityServices = () => {
   const ItemList = ({ title, amenityItem }) => {
     return (
       <div className="pb-4">
-        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary dark:text-gray-300 ">{title} </h2>
+        <h2 className="font-h2 text-[18px] pt-4 pb-2 text-primary dark:text-gray-300 ">
+          {title}{" "}
+        </h2>
         {/* List */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
           {amenityItem.map((item) => (
@@ -118,7 +125,9 @@ const RoomPolicies = () => {
     <div>
       {/* Room Policy */}
       <div className="py-6 ">
-        <p className=" text-primary dark:text-gray-300  text-lg pb-3 ">Check-in/out Policy:</p>
+        <p className=" text-primary dark:text-gray-300  text-lg pb-3 ">
+          Check-in/out Policy:
+        </p>
         <ul className=" list-square px-7 font-extralight pb-3">
           <li>Check in: from 14:00;</li>
           <li>Check out: no later than 12:00;</li>
@@ -139,7 +148,9 @@ const RoomPolicies = () => {
           </li>
         </ul>
 
-        <p className=" text-primary dark:text-gray-300 text-lg pb-3 ">Payment method:</p>
+        <p className=" text-primary dark:text-gray-300 text-lg pb-3 ">
+          Payment method:
+        </p>
         <ul className=" list-square px-7 font-extralight pb-3">
           <li>By cash</li>
           <li>
@@ -169,7 +180,23 @@ const RoomPolicies = () => {
   );
 };
 
+const useProductDetail = (productId) => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["products", productId],
+    queryFn: () => getProductsById(productId),
+  });
+  return { data, isLoading };
+};
+
 const RoomInformation = () => {
+  const [cart, setCart] = useState([]);
+  const { productId } = useParams();
+  const { data, isLoading } = useProductDetail(productId);
+
+  if (isLoading) return <GlobalSpinner />;
+
+  const { data: room } = data;
+
   const RoomInfo = ({ icon, para }) => {
     return (
       <div className="pb-2 text-lg flex gap-2 items-center font-subHeading text-primary dark:text-light  font-extralight tracking-wide">
@@ -220,6 +247,15 @@ const RoomInformation = () => {
             {/* Intro */}
             <div className="md:grid md:col-span-3">
               <div>
+                <h3
+                  className="text-light text-2xl font-bold font-h2 tracking-wide"
+                  // onClick={() => {
+                  //   setCart(...cart, [room]);
+                  //   console.log(cart);
+                  // }}
+                >
+                  {room.title}
+                </h3>
                 <p className=" font-subHeading text-primary dark:text-gray-300 font-extralight tracking-wide text-justify py-6 ">
                   Enjoy maximum satisfaction and comfort with the most
                   personalised service and the most exclusive products in
@@ -241,13 +277,10 @@ const RoomInformation = () => {
                 </h2>
                 {/* List info */}
                 <div className="md:grid md:grid-cols-2">
-                  <RoomInfo
-                    icon={<BiBed />}
-                    para="1 King Bed / 2 Single Beds"
-                  />
+                  <RoomInfo icon={<BiBed />} para={room.bed} />
                   <RoomInfo
                     icon={<FaArrowsAlt />}
-                    para="Room size 30 m² / 323 ft²"
+                    para={`Room size: ${room.size}`}
                   />
                   <RoomInfo icon={<FaBuilding />} para="With view street" />
                   <RoomInfo icon={<FaBath />} para="Shower and Bathtub" />
@@ -272,14 +305,19 @@ const RoomInformation = () => {
             </div>
 
             {/* Room Booking Form */}
-            <div className=" bg-beige my-6 p-8 justify-center">
+            <div className="bg-beige my-8 lg:my-0 p-8 justify-center">
+              <img
+                src={room.imageUrl}
+                alt=""
+                className="mb-4 w-full h-80 md:h-68 lg:h-44 object-cover "
+              />
               <div className="">
                 <h3 className="font-subHeading text-primary font-extralight tracking-wide">
                   Rates Start From
                 </h3>
                 <p>
                   <span className=" text-xl font-bold text-light tracking-wide">
-                    $119.00
+                    ${room.price}
                   </span>
                   / Night
                 </p>

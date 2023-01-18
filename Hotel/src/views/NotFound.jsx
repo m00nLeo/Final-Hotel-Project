@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const NotFound = () => {
   return (
     <div>
-      <div class="bg-[#FEF4E8]/95 w-full h-screen flex flex-col items-center justify-center">
+      <div className="bg-[#FEF4E8]/95 w-full h-screen flex flex-col items-center justify-center">
         <svg
-          class="w-1/2 md:1/3 lg:w-1/4 text-[#b18c57]"
+          className="w-1/2 md:1/3 lg:w-1/4 text-[#b18c57]"
           xmlns="http://www.w3.org/2000/svg"
           data-name="Layer 1"
           viewBox="0 0 860.13137 571.14799"
@@ -157,21 +157,21 @@ const NotFound = () => {
             fill="#cacaca"
           ></path>
         </svg>
-        <div class="flex flex-col items-center justify-center">
-          <p class="text-3xl md:text-4xl lg:text-5xl text-[#b18c57] mt-12">
+        <div className="flex flex-col items-center justify-center">
+          <p className="text-3xl md:text-4xl lg:text-5xl text-[#b18c57] mt-12">
             Page Not Found
           </p>
-          <p class="md:text-lg lg:text-xl text-gray-600 mt-8">
+          <p className="md:text-lg lg:text-xl text-gray-600 mt-8">
             Sorry, the page you are looking for could not be found.
           </p>
           <Link
             to="/"
-            class="flex items-center space-x-2 bg-[#b18c57] hover:bg-[#b18c57]/75 text-gray-100 px-4 py-3 mt-12 rounded transition duration-150"
+            className="flex items-center space-x-2 bg-[#b18c57] hover:bg-[#b18c57]/75 text-gray-100 px-4 py-3 mt-12 rounded transition duration-150"
             title="Return Home"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5"
+              className="h-5 w-5"
               viewBox="0 0 20 20"
               fill="currentColor"
             >

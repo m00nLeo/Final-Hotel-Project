@@ -1,5 +1,6 @@
 import React from "react";
 import { BiChevronDown } from "react-icons/bi";
+import { Link } from "react-router-dom";
 
 const ReservationForm = ({ icon, buttonName }) => {
   const today = new Date();
@@ -90,12 +91,12 @@ const ReservationForm = ({ icon, buttonName }) => {
 
         {/* Submit button */}
         <div className="">
-          <button className=" w-full bg-light mx-auto py-3 mb-3 justify-center border-t-orange-100 rounded-sm">
-            <div className="flex items-center gap-2 font-extralight text-white justify-center">
+          <Link to="/reservation" className=" w-full justify-center">
+            <div className="flex items-center bg-light  mx-auto py-3 mb-3  gap-2 font-extralight  border-t-orange-100 rounded-sm text-white justify-center">
               {icon}
               {buttonName}
             </div>
-          </button>
+          </Link>
 
           <div className="px-4 py-2">
             <ul className=" text-light font-extralight list-disc tracking-wide">

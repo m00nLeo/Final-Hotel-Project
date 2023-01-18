@@ -14,60 +14,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/scrollbar";
 
-const RoomsList = [
-  {
-    id: 1,
-    title: "Imperial Suite with Balcony City View",
-    price: 250,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://bilurygallery.bithemer.com/assets/img/rooms/r1@2x.jpg",
-  },
-  {
-    id: 2,
-    title: "Executive Deluxe Double or Twin Room",
-    price: 280,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://bilurygallery.bithemer.com/assets/img/rooms/r2@2x.jpg",
-  },
-  {
-    id: 3,
-    title: "Family Suite With Balcony Street View",
-    price: 300,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://bilurygallery.bithemer.com/assets/img/rooms/r3@2x.jpg",
-  },
-  {
-    id: 4,
-    title: "Premium Room with Window City View",
-    price: 350,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl: "https://bilurygallery.bithemer.com/assets/img/rooms/r4@2x.jpg",
-  },
-  {
-    id: 5,
-    title: "Family Suite With Balcony Street View",
-    price: 400,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl:
-      "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-  },
-  {
-    id: 6,
-    title: "Premium Room with Window City View",
-    price: 350,
-    description:
-      "30 m²/323 ft², 1 King Bed or 2 Single Beds, View Street, Private Bath, Breakfast Included",
-    imageUrl:
-      "https://images.unsplash.com/photo-1605346434674-a440ca4dc4c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { getProducts } from "../../../services/productService";
 
-const RoomsSlider = () => {
+const RoomsSlider = ({products}) => {
   return (
     <>
       <Swiper
@@ -98,7 +48,7 @@ const RoomsSlider = () => {
         }}
         modules={[Autoplay, Navigation, Scrollbar]}
       >
-        {RoomsList.map((room) => (
+        {products?.map((room) => (
           <SwiperSlide key={room.id}>
             <div className="relative group" key={room.id}>
               <img
@@ -115,7 +65,7 @@ const RoomsSlider = () => {
                   <p className="mb-4 text-sm font-extralight">
                     Room size: {room.description}
                   </p>
-                  <Link to="/roomdetail">
+                  <Link to={`/roomdetail/${room.id}`}>
                     <div className="flex items-center w-fit gap-1 bg-[#b18c57] hover:bg-[#b18c57]/75 py-2 px-4 content-center ">
                       <p className="text-sm">Detail</p>
                       <span>
@@ -134,6 +84,11 @@ const RoomsSlider = () => {
 };
 
 const RoomsAndSuites = ({title="Rooms & Suites"}) => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
+    cacheTime: 10 * 1000,
+  });
   return (
     <div className=" bg-[#222222] py-10">
       {/* container */}
@@ -148,7 +103,7 @@ const RoomsAndSuites = ({title="Rooms & Suites"}) => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
             <div className="">
-              <RoomsSlider />
+              <RoomsSlider products={data?.data?.products}/>
             </div>
           </div>
         </div>
