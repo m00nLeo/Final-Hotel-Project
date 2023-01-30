@@ -18,13 +18,14 @@ const ContactList = ({ icon, title, para }) => {
   );
 };
 
-const ContactInput = ({ title, type, className }) => {
+const ContactInput = ({ title, type, className, id }) => {
   return (
     <>
       <input
         className={`px-2 py-3 bg-white border mb-4 outline-none text-black ${className}`}
         type={type}
         placeholder={`${title} *`}
+        id={id}
       />
     </>
   );
@@ -39,6 +40,18 @@ const handleSubmit = (e) => {
   } else {
     firstNameInput.classList.remove("border-red-500");
   }
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  const form = document.getElementById("contactForm");
+  const formElements = Array.from(form.elements);
+  formElements.forEach((element) => {
+    let val = element.value.trim();
+    if (val == "") {
+      element.classList.add("border-red-500");
+    } else element.classList.remove("border-red-500");
+  });
 };
 
 const Email = () => {
@@ -118,45 +131,51 @@ const Email = () => {
             </div>
 
             <div className="font-thin text-sm lg:col-span-2">
-              <p className="mb-4">The fields marked with * are required.</p>
-              <div className="grid md:grid-cols-2 gap-3">
-                <ContactInput title="First Name" type="text" />
-                <ContactInput title="Last Name" type="text" />
-                <ContactInput title="Email" type="text" />
-                <ContactInput title="Phone" type="number" />
-                <ContactInput
-                  title="Subject"
-                  type="text"
-                  className="col-span-2"
-                />
-                {/* <ContactInput
+              <form id="contactForm" className="mb-4" onSubmit={handleSubmit}>
+                <p className="mb-4">The fields marked with * are required.</p>
+                <div className="grid md:grid-cols-2 gap-3">
+                  <ContactInput title="First Name" type="text" id="firstName" />
+                  <ContactInput title="Last Name" type="text" id="lastName" />
+                  <ContactInput title="Email" type="text" id="email" />
+                  <ContactInput title="Phone" type="number" id="phone" />
+                  <ContactInput
+                    title="Subject"
+                    type="text"
+                    className="col-span-2"
+                    id="subject"
+                  />
+                  {/* <ContactInput
                   title="Message"
                   type="text"
                   className="col-span-2 h-20 md:h-32 lg:h-48"
                 /> */}
-                <textarea
-                  className="px-2 py-3 bg-white border mb-4  col-span-2 h-20 md:h-32 lg:h-48 outline-none"
-                  placeholder="Message *"
-                ></textarea>
-              </div>
-
-              <div className="lg:flex mb-4 justify-between items-center">
-                <div className="flex gap-3 items-center mb-4">
-                  <input type="checkbox" id="termsandpolicy" />
-                  <label htmlFor="termsandpolicy" className="flex gap-1">
-                    I agree to
-                    <label
-                      htmlFor="terms"
-                      className="text-[#b18c57] font-semibold cursor-pointer"
-                    >
-                      terms and policy
-                    </label>
-                  </label>
+                  <textarea
+                    className="px-2 py-3 bg-white border mb-4  col-span-2 h-20 md:h-32 lg:h-48 outline-none"
+                    placeholder="Message *"
+                  ></textarea>
                 </div>
-                <button className="bg-[#b18c57] hover:bg-[#997a4e] text-lg px-4 py-2 text-white ">
-                  Send message
-                </button>
-              </div>
+
+                <div className="lg:flex mb-4 justify-between items-center">
+                  <div className="flex gap-3 items-center mb-4">
+                    <input type="checkbox" id="termsandpolicy" />
+                    <label htmlFor="termsandpolicy" className="flex gap-1">
+                      I agree to
+                      <label
+                        htmlFor="terms"
+                        className="text-[#b18c57] font-semibold cursor-pointer"
+                      >
+                        terms and policy
+                      </label>
+                    </label>
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-[#b18c57] hover:bg-[#997a4e] text-lg px-4 py-2 text-white "
+                  >
+                    Send message
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </Container>
