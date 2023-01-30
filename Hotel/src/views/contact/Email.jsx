@@ -30,17 +30,6 @@ const ContactInput = ({ title, type, className, id }) => {
     </>
   );
 };
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const firstNameInput = document.getElementById("firstName");
-  const firstNameValue = firstNameInput.value.trim();
-  firstNameInput.classList.add("border-red-500");
-  if (firstNameValue === "") {
-    firstNameInput.classList.add("border-red-500");
-  } else {
-    firstNameInput.classList.remove("border-red-500");
-  }
-};
 
 const handleSubmit = (e) => {
   e.preventDefault();
