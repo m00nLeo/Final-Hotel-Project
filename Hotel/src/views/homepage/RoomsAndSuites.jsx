@@ -18,7 +18,6 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../../../services/productService";
 
 const RoomsSlider = ({ products }) => {
-  console.log(products);
   return (
     <>
       <Swiper
