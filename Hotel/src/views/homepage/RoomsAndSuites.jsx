@@ -17,7 +17,8 @@ import "swiper/css/scrollbar";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../../../services/productService";
 
-const RoomsSlider = ({products}) => {
+const RoomsSlider = ({ products }) => {
+  console.log(products);
   return (
     <>
       <Swiper
@@ -63,7 +64,7 @@ const RoomsSlider = ({products}) => {
                 <h3 className="w-5/6 mb-5 text-lg">{room.title} </h3>
                 <div className="hidden group-hover:block ">
                   <p className="mb-4 text-sm font-extralight">
-                    Room size: {room.description}
+                    Room size: {`${room.size}, ${room.bed}, ${room.description}`}
                   </p>
                   <Link to={`/roomdetail/${room.id}`}>
                     <div className="flex items-center w-fit gap-1 bg-[#b18c57] hover:bg-[#b18c57]/75 py-2 px-4 content-center ">
@@ -83,7 +84,7 @@ const RoomsSlider = ({products}) => {
   );
 };
 
-const RoomsAndSuites = ({title="Rooms & Suites"}) => {
+const RoomsAndSuites = ({ title = "Rooms & Suites" }) => {
   const { data, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: () => getProducts(),
@@ -103,7 +104,7 @@ const RoomsAndSuites = ({title="Rooms & Suites"}) => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
             </p>
             <div className="">
-              <RoomsSlider products={data?.data?.products}/>
+              <RoomsSlider products={data?.data?.products} />
             </div>
           </div>
         </div>
