@@ -174,7 +174,7 @@ const Email = () => {
           className=" w-full h-96"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1378200353793!2d106.66671311376858!3d10.800754761700095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752930e65c14bf%3A0x6fb8f1972d050a64!2zMjAyIEhvw6BuZyBWxINuIFRo4bulLCBQaMaw4budbmcgOSwgVMOibiBCw6xuaCwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1673338226862!5m2!1svi!2s"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </Container>
     </div>

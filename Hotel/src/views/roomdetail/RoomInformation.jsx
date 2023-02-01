@@ -191,6 +191,7 @@ const useProductDetail = (productId) => {
 const RoomInformation = () => {
   const [cart, setCart] = useState([]);
   const { productId } = useParams();
+  console.log(productId);
   const { data, isLoading } = useProductDetail(productId);
 
   if (isLoading) return <GlobalSpinner />;
@@ -326,6 +327,7 @@ const RoomInformation = () => {
               <ReservationForm
                 icon={<FaCalendarAlt />}
                 buttonName="Book this room"
+                productId={productId}
               />
             </div>
           </div>
