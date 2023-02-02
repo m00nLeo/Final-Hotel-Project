@@ -3,17 +3,8 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Container from "../../components/common/Container";
 import { useQuery } from "@tanstack/react-query";
-import { getProducts, getProductsById } from "../../../services/productService";
+import { getProducts } from "../../../services/productService";
 import GlobalSpinner from "../../components/common/GlobalSpinner";
-import { addItemToCart } from "../../../services/cartService";
-
-const useProductDetail = (productId) => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["products", productId],
-    queryFn: () => getProductsById(productId),
-  });
-  return { data, isLoading };
-};
 
 const RoomsDetail = ({ products }) => {
   return (
