@@ -24,9 +24,7 @@ const NavMenu = ({ className }) => {
       </li>
       <li>
         <Link to="/#services" className={className}>
-          {/* <a href="#services" className={className}> */}
-            Services
-          {/* </a> */}
+          Services
         </Link>
       </li>
       <li>
@@ -76,11 +74,13 @@ const Navbar = () => {
         <div className=" flex justify-between items-center py-4 gap-x-4">
           {/* Logo */}
           <div className="">
-            <img
-              src="https://360.agencewebcom.com/web/uploads/api/site-413/42a9f5a2934936263e0ccf2d2799f5d2124cc206.svg"
-              alt=""
-              className="w-32 "
-            />
+            <Link to="/">
+              <img
+                src="https://360.agencewebcom.com/web/uploads/api/site-413/42a9f5a2934936263e0ccf2d2799f5d2124cc206.svg"
+                alt=""
+                className="w-32"
+              />
+            </Link>
           </div>
 
           {/* Menu Drawer*/}
@@ -111,14 +111,14 @@ const Navbar = () => {
             >
               <label htmlFor="drawer" className="drawer-overlay"></label>
               <ul className="menu py-4 px-10 w-screen bg-black/75 text-2xl ">
-                <NavMenu className="hover:bg-slate-400/75 dark:hover:bg-gray-800 hover:bg-opacity-75 w-56 mb-8" />
+                <NavMenu className="hover:bg-slate-400/75 dark:hover:bg-gray-800 hover:bg-opacity-75 w-56 mb-8 cursor-pointer" />
               </ul>
             </div>
           </div>
 
           {/* Menu lg-screen */}
           <div className="hidden list-none gap-10 text-xl lg:flex lg:items-center">
-            <NavMenu className="text-base xl:text-xl hover:text-[#b18c57]" />
+            <NavMenu className="text-base xl:text-xl hover:text-[#b18c57] cursor-pointer" />
           </div>
         </div>
       </Container>
