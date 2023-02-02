@@ -47,11 +47,11 @@ const Completed = () => {
 
   let sum = 0;
   const x = carts.map((cart) => {
-    sum = cart.price + sum;
+    sum = cart.price * cart.quantity + sum;
   });
 
   const customerinfo = JSON.parse(localStorage.getItem("customerinfo"));
-  console.log(customerinfo);
+  // console.log(customerinfo);
 
   return (
     <div className="font-subHeading">
@@ -140,7 +140,9 @@ const Completed = () => {
                       <div className="flex justify-between text-sm mb-1">
                         <span className="text-[#495057] dark:text-gray-200  font-light  ">
                           Quantity:{" "}
-                          <strong className="font-semibold text-[#b18c57]">1 Room</strong>
+                          <strong className="font-semibold text-[#b18c57]">
+                            {cart.quantity} Room(s)
+                          </strong>
                         </span>
                         <span className="text-[#b18c57]">
                           <small>US$</small>{" "}
