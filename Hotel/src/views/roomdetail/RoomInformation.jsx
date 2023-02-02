@@ -19,6 +19,7 @@ import GroupsOfButton from "../../components/common/GroupsOfButton";
 import ReservationForm from "../../components/common/ReservationForm";
 import GlobalSpinner from "../../components/common/GlobalSpinner";
 import { useState } from "react";
+import { addItemToCart } from "../../../services/cartService";
 
 const AmenityServices = () => {
   const Clothing = [
@@ -191,12 +192,14 @@ const useProductDetail = (productId) => {
 const RoomInformation = () => {
   const [cart, setCart] = useState([]);
   const { productId } = useParams();
-  console.log(productId);
   const { data, isLoading } = useProductDetail(productId);
 
   if (isLoading) return <GlobalSpinner />;
-
   const { data: room } = data;
+
+  const addToCart = () => {
+    addItemToCart(1, room);
+  };
 
   const RoomInfo = ({ icon, para }) => {
     return (
@@ -248,13 +251,7 @@ const RoomInformation = () => {
             {/* Intro */}
             <div className="md:grid md:col-span-3">
               <div>
-                <h3
-                  className="text-light text-2xl font-bold font-h2 tracking-wide"
-                  // onClick={() => {
-                  //   setCart(...cart, [room]);
-                  //   console.log(cart);
-                  // }}
-                >
+                <h3 className="text-light text-2xl font-bold font-h2 tracking-wide">
                   {room.title}
                 </h3>
                 <p className=" font-subHeading text-primary dark:text-gray-300 font-extralight tracking-wide text-justify py-6 ">
@@ -328,6 +325,7 @@ const RoomInformation = () => {
                 icon={<FaCalendarAlt />}
                 buttonName="Book this room"
                 productId={productId}
+                addToCart={addToCart}
               />
             </div>
           </div>
