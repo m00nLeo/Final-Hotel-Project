@@ -3,8 +3,17 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import Container from "../../components/common/Container";
 import { useQuery } from "@tanstack/react-query";
-import { getProducts } from "../../../services/productService";
+import { getProducts, getProductsById } from "../../../services/productService";
 import GlobalSpinner from "../../components/common/GlobalSpinner";
+import { addItemToCart } from "../../../services/cartService";
+
+const useProductDetail = (productId) => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["products", productId],
+    queryFn: () => getProductsById(productId),
+  });
+  return { data, isLoading };
+};
 
 const RoomsDetail = ({ products }) => {
   return (
@@ -35,7 +44,7 @@ const RoomsDetail = ({ products }) => {
                       </span>
                     </div>
                   </Link>
-                  <Link to="/reservation" state={room.id}>
+                  <Link to={`/roomdetail/${room.id}`}>
                     <div className="flex items-center w-fit gap-1 bg-[#b18c57] hover:bg-[#b18c57]/75 py-2 px-4 content-center ">
                       <p className="text-sm">Book Now</p>
                       <span>
@@ -74,7 +83,7 @@ const RoomsList = () => {
             molestie reprehendunt mea, ea legimus molestiae cum, partem
             iracundia delicatissimi cum te.
           </p>
-          <RoomsDetail products={data?.data?.products}/>
+          <RoomsDetail products={data?.data?.products} />
         </div>
       </Container>
     </div>
