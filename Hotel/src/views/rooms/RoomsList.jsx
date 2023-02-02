@@ -35,7 +35,7 @@ const RoomsDetail = ({ products }) => {
                       </span>
                     </div>
                   </Link>
-                  <Link to="/reservation">
+                  <Link to="/reservation" state={room.id}>
                     <div className="flex items-center w-fit gap-1 bg-[#b18c57] hover:bg-[#b18c57]/75 py-2 px-4 content-center ">
                       <p className="text-sm">Book Now</p>
                       <span>
