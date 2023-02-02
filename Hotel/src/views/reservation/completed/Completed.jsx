@@ -9,6 +9,9 @@ import {
 import { GoCalendar } from "react-icons/go";
 import Container from "../../../components/common/Container";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { getCart } from "../../../../services/cartService";
+import GlobalSpinner from "../../../components/common/GlobalSpinner";
 
 const Process = ({ numb, para, className }) => {
   return (
@@ -25,7 +28,28 @@ const Process = ({ numb, para, className }) => {
   );
 };
 
+const today = new Date();
+const nextdate = today.setDate(today.getDate() + 1);
+const checkinDay = new Date(today.setDate(today.getDate() - 1)).toDateString();
+const checkoutDay = new Date(nextdate).toDateString();
+
 const Completed = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["cart"],
+    queryFn: () => getCart(),
+    cacheTime: 10 * 1000,
+  });
+  if (isLoading) return <GlobalSpinner />;
+
+  // if (productId !== null) {
+  const { data: room } = data;
+  const carts = room.carts;
+
+  let sum = 0;
+  const x = carts.map((cart) => {
+    sum = cart.price + sum;
+  });
+
   return (
     <div className="font-subHeading">
       {/* Hero */}
@@ -76,13 +100,13 @@ const Completed = () => {
                         <span className="text-[#495057] font-thin ">
                           Check-In Date:
                         </span>
-                        <strong className=" ">19 Feb 2023</strong>
+                        <strong className=" "> {checkinDay}</strong>
                       </div>
                       {/* check out */}
                       <div className="flex gap-1 mb-1">
                         <GoCalendar className="w-5 h-5" />
                         Check-Out Date:
-                        <strong className=" ">20 Feb 2023</strong>
+                        <strong className=" "> {checkoutDay}</strong>
                       </div>
                       <div>
                         <p className=" mb-1">
@@ -96,76 +120,49 @@ const Completed = () => {
                     <div>{<FaMale className="w-5 h-5" />}</div>
                     <div className=" ">
                       <span>
-                        Adults: <strong>1</strong>
+                        Adults: <strong>2</strong>
                       </span>
-                      <span>-</span>
+                      <span> - </span>
                       <span>
-                        Children: <strong>0</strong>
+                        Children: <strong>1</strong>
                       </span>
                     </div>
                   </div>
                 </div>
                 {/*  */}
                 <div className="border-b-2  mb-3 pb-3">
-                  <div className="mb-2">
-                    <span className=" text-lg font-medium font-h2">
-                      Executive Deluxe Double or Twin Room
-                    </span>
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-[#495057] font-light  ">
-                        Quantity:{" "}
-                        <strong className="font-semibold">1 Room</strong>
+                  {carts?.map((cart, index) => (
+                    <div className="mb-2" key={index}>
+                      <span className=" text-lg font-medium font-h2">
+                        {cart.title}
                       </span>
-                      <span className="text-[#b18c57]">
-                        <small>US$</small> 69.00
-                      </span>
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-[#495057] font-light  ">
+                          Quantity:{" "}
+                          <strong className="font-semibold">1 Room</strong>
+                        </span>
+                        <span className="text-[#b18c57]">
+                          <small>US$</small>{" "}
+                          <span className="font-bold">{cart.price}.00</span>
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex justify-between text-sm ">
-                      <span className="text-[#495057] font-light  ">
-                        Extra beds:
-                        <strong className="font-semibold">1 Bed</strong>
-                      </span>
-                      <span className="text-[#b18c57]">
-                        <small>US$</small> 10.00
-                      </span>
-                    </div>
-                  </div>
-                  <div>
-                    <span className=" text-lg font-medium ">
-                      Imperial Suite with Balcony City View
-                    </span>
-                    <div className="flex justify-between text-sm ">
-                      <span className="text-[#495057] font-light  ">
-                        Quantity:
-                        <strong className="font-semibold">1 Room</strong>
-                      </span>
-                      <span className="text-[#b18c57] ">
-                        <small>US$</small> 69.00
-                      </span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-                <div className="border-b-2  mb-3 pb-3">
-                  <div className=" flex text-lg font-medium   justify-between">
-                    <span>Airport Transfer Service</span>
-                    <span className="text-[#b18c57] text-lg">
-                      <small>US$</small> 69.00
-                    </span>
-                  </div>
-                </div>
+
                 <div className="border-b-2  mb-3 pb-3">
                   <div className=" flex text-lg font-medium  justify-between">
                     <span>Tax & Service Change</span>
                     <span className="text-[#b18c57] text-lg">
-                      <small>US$</small> 14.80
+                      <small>US$</small> 14.00
                     </span>
                   </div>
                 </div>
 
-                <div className=" flex text-lg font-medium  justify-between">
+                <div className=" flex text-lg font-medium  justify-between pb-4">
                   <span>Total Amount:</span>
                   <span className="text-[#b18c57] text-xl">
-                    <small>US$</small> 162.80
+                    <small>US$</small> {sum + 14}.00
                   </span>
                 </div>
               </div>
@@ -176,9 +173,7 @@ const Completed = () => {
                     Customer Information
                   </h3>
                 </div>
-                <div
-                  className="px-8 border-solid border border-gray-200 pt-5  mb-5 text-xs"
-                >
+                <div className="px-8 border-solid border border-gray-200 pt-5  mb-5 text-xs">
                   <p className="mb-2 text-base">
                     Full Name: <strong>Mr. Jonh Deep</strong>
                   </p>
@@ -215,9 +210,7 @@ const Completed = () => {
                     Payment Method
                   </h3>
                 </div>
-                <div
-                  className="px-8 border-solid border border-gray-200 pt-5  mb-8"
-                >
+                <div className="px-8 border-solid border border-gray-200 pt-5  mb-8">
                   <div className="flex items-center mb-4">
                     <p> Pay With Cash</p>
                   </div>

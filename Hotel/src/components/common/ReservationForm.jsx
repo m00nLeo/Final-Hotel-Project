@@ -2,7 +2,7 @@ import React from "react";
 import { BiChevronDown } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
-const ReservationForm = ({ icon, buttonName, productId }) => {
+const ReservationForm = ({ icon, buttonName, productId, addToCart }) => {
   const today = new Date();
   const arrday = today.toISOString().split("T")[0];
   const numberOfDaysToAdd = 1;
@@ -91,7 +91,12 @@ const ReservationForm = ({ icon, buttonName, productId }) => {
 
         {/* Submit button */}
         <div className="">
-          <Link to="/reservation" className=" w-full justify-center" state={productId}>
+          <Link
+            to="/reservation"
+            className=" w-full justify-center"
+            state={productId}
+            onClick={addToCart}
+          >
             <div className="flex items-center bg-light  mx-auto py-3 mb-3  gap-2 font-extralight  border-t-orange-100 rounded-sm text-white justify-center">
               {icon}
               {buttonName}

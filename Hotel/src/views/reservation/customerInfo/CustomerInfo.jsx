@@ -4,7 +4,7 @@ import {
   AiOutlineArrowRight,
   AiOutlineCheck,
 } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Container from "../../../components/common/Container";
 import SubHero from "../../contact/SubHero";
 
@@ -46,6 +46,7 @@ const Process = ({ numb, para, className }) => {
 };
 
 const CustomerInfo = () => {
+  
   return (
     <div className="font-subHeading">
       {/* Hero */}
@@ -256,13 +257,15 @@ const CustomerInfo = () => {
                       </Link>
                     </div>
                     <div>
-                      <button
+                      <Link
+                        to="/reservation/complete"
+                        state={{ location: location }}
                         value="next"
                         type="submit"
                         class="flex gap-2 items-center justify-center bg-[#b18c57] text-white w-40 h-10 text-base"
                       >
                         Next Step <AiOutlineArrowRight />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

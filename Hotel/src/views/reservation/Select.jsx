@@ -11,14 +11,19 @@ import {
 } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getProductsById } from "../../../services/productService";
 import GlobalSpinner from "../../components/common/GlobalSpinner";
+import {
+  getCart,
+  removeCartItem,
+  updateCartItem,
+} from "../../../services/cartService";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const today = new Date();
 const arrday = today.toISOString().split("T")[0];
 const nextdate = today.setDate(today.getDate() + 1);
 const leaveday = new Date(nextdate).toISOString().split("T")[0];
-const checkinDay = new Date(today).toDateString();
+const checkinDay = new Date(today.setDate(today.getDate() - 1)).toDateString();
 const checkoutDay = new Date(nextdate).toDateString();
 
 const Process = ({ numb, para, className }) => {
@@ -93,12 +98,8 @@ const Filter = () => {
               defaultValue="adults"
               className="border border-[#b18c57] p-2 outline-none h-12"
             >
-              <option value="adults">Adults</option>
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
-              <option value="">4</option>
-              <option value="">5</option>
+              <option value="">Adults</option>
+              <option value="adults">2 pers</option>
             </select>
           </div>
           <div className="flex flex-col">
@@ -114,10 +115,8 @@ const Filter = () => {
               defaultValue="childern"
               className="border border-[#b18c57] p-2 outline-none h-12"
             >
-              <option value="childern">Childerns</option>
-              <option value="">1</option>
-              <option value="">2</option>
-              <option value="">3</option>
+              <option value="">Childerns</option>
+              <option value="childern">1 per</option>
             </select>
           </div>
 
@@ -141,7 +140,27 @@ const RoomInfo = ({ icon, para }) => {
   );
 };
 
-const SelectRoom = ({ title, imageUrl, price, size, bed }) => {
+const SelectRoom = ({
+  title,
+  imageUrl,
+  price,
+  size,
+  bed,
+  id,
+  roomQuantity,
+}) => {
+  const [quantity, setQuantity] = useState(roomQuantity);
+
+  const queryClient = useQueryClient();
+
+  updateCartItem(id, quantity);
+
+  const deleteItem = useMutation({
+    mutationFn: (id) => removeCartItem(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
+    },
+  });
   return (
     <div className="relative overflow-hidden mb-4 bg-[#FEF4E8]/75 border border-[#977547] dark:border-[#b18c57] text-slate-800">
       <div className="w-20 aspect-square -top-10 rounded bg-[#b18c57] absolute -right-10 rotate-45"></div>
@@ -219,16 +238,23 @@ const SelectRoom = ({ title, imageUrl, price, size, bed }) => {
                 <select
                   name=""
                   id="quantity"
-                  defaultValue="quantity"
+                  defaultValue={quantity}
                   className="border p-2 outline-none h-10 bg-white text-black"
+                  onChange={(e) => {
+                    console.log(e);
+                    setQuantity(e.target.selectedIndex);
+                  }}
                 >
-                  <option value="">Quantity</option>
-                  <option value="quantity">1</option>
-                  <option value="">2</option>
-                  <option value="">3</option>
+                  <option value="0">Quantity</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
                 </select>
                 {/* Remove */}
-                <button className="bg-slate-400 h-10 px-4 hover:bg-slate-500/75">
+                <button
+                  className="bg-slate-400 h-10 px-4 hover:bg-slate-500/75"
+                  onClick={() => deleteItem.mutate(id)}
+                >
                   X Remove
                 </button>
               </div>
@@ -240,7 +266,12 @@ const SelectRoom = ({ title, imageUrl, price, size, bed }) => {
   );
 };
 
-const Layout = ({ selected, detailTitle, detailPrice }) => {
+const Layout = ({ selected, detailTitle, detailPrice, detailQuantity }) => {
+  let sum = 0;
+  for (let i = 0; i < detailPrice?.length; i++) {
+    sum = detailQuantity[i] * detailPrice[i] + sum;
+  }
+
   return (
     <Container fluid={true}>
       <div className="pt-20">
@@ -295,27 +326,32 @@ const Layout = ({ selected, detailTitle, detailPrice }) => {
                   </p>
                   <p className="flex gap-2 mb-2 items-center">
                     <FaPeopleArrows /> Adults:{" "}
-                    <strong className=" dark:text-gray-200 "> 1 </strong> -
+                    <strong className=" dark:text-gray-200 "> 2 </strong> -
                     Children:
-                    <strong className=" dark:text-gray-200 ">0</strong>
+                    <strong className=" dark:text-gray-200 ">1</strong>
                   </p>
                 </div>
                 <hr />
                 {/* Room Booking Detail */}
-                <div className="my-4">
-                  <h3 className="text-base lg:text-lg text-black dark:text-gray-300  font-normal">
-                    {detailTitle}{" "}
-                  </h3>
-                  <div className="flex justify-between items-center">
-                    <p className="text-gray-500/75  dark:text-gray-300/75">
-                      Quantity:
-                      <strong className="text-[#b18c57]/75 font-bold">
-                        1 Room
-                      </strong>
-                    </p>
-                    <p className="text-[#b18c57] font-bold">${detailPrice}.00</p>
+                {detailTitle?.map((title, index) => (
+                  <div className="my-4" key={index}>
+                    <h3 className="text-base lg:text-lg text-black dark:text-gray-300  font-normal">
+                      {title}{" "}
+                    </h3>
+                    <div className="flex justify-between items-center">
+                      <p className="text-gray-500/75  dark:text-gray-300/75">
+                        Quantity:{" "}
+                        <strong className="text-[#b18c57]/75 font-bold">
+                          {detailQuantity[index]} Room
+                        </strong>
+                      </p>
+                      <p className="text-[#b18c57] font-bold">
+                        ${detailQuantity[index] * detailPrice[index]}.00
+                      </p>
+                    </div>
                   </div>
-                </div>
+                ))}
+
                 <hr />
                 {/* Tax & Service Change */}
                 <div className="my-4">
@@ -333,7 +369,7 @@ const Layout = ({ selected, detailTitle, detailPrice }) => {
                     <h3 className="text-xl lg:text-2xl text-black dark:text-gray-300 font-normal">
                       Total Amount:
                     </h3>
-                    <p className="text-[#b18c57] font-bold">${detailPrice + 14}.00</p>
+                    <p className="text-[#b18c57] font-bold">${sum + 14} .00</p>
                   </div>
                 </div>
 
@@ -353,44 +389,42 @@ const Layout = ({ selected, detailTitle, detailPrice }) => {
   );
 };
 
-const useProductDetail = (productId) => {
-  const { data, isLoading } = useQuery({
-    queryKey: ["products", productId],
-    queryFn: () => getProductsById(productId),
-  });
-  return { data, isLoading };
-};
-
 const Select = () => {
   const location = useLocation();
-  const productId = location.state;
+  // const productId = location.state;
 
-  if (productId !== null) {
-    const { data, isLoading } = useProductDetail(productId);
+  const { data, isLoading } = useQuery({
+    queryKey: ["cart"],
+    queryFn: () => getCart(),
+    cacheTime: 10 * 1000,
+  });
+  if (isLoading) return <GlobalSpinner />;
 
-    if (isLoading) return <GlobalSpinner />;
-
-    const { data: room } = data;
-
-    return (
-      <Layout
-        selected={
-          <SelectRoom
-            key={room?.id}
-            title={room?.title}
-            bed={room?.bed}
-            imageUrl={room?.imageUrl}
-            price={room?.price}
-            size={room?.size}
-          />
-        }
-        detailTitle={room?.title}
-        detailPrice={room?.price}
-      />
-    );
-  } else {
-    return <Layout selected={<></>} />;
-  }
+  // if (productId !== null) {
+  const { data: room } = data;
+  const carts = room.carts;
+  return (
+    <Layout
+      selected={carts.map((room) => (
+        <SelectRoom
+          key={room?.id}
+          title={room?.title}
+          bed={room?.bed}
+          imageUrl={room?.imageUrl}
+          price={room?.price}
+          size={room?.size}
+          roomQuantity={room?.quantity}
+          id={room?.id}
+        />
+      ))}
+      detailTitle={carts.map((room) => room?.title)}
+      detailQuantity={carts.map((room) => room?.quantity)}
+      detailPrice={carts.map((room) => room?.price)}
+    />
+  );
+  // } else {
+  //   return <Layout selected={<></>} />;
+  // }
 };
 
 export default Select;
