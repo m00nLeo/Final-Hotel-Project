@@ -50,6 +50,9 @@ const Completed = () => {
     sum = cart.price + sum;
   });
 
+  const customerinfo = JSON.parse(localStorage.getItem("customerinfo"));
+  console.log(customerinfo);
+
   return (
     <div className="font-subHeading">
       {/* Hero */}
@@ -95,15 +98,13 @@ const Completed = () => {
                   <div>
                     <div className="md:grid md:grid-cols-2 lg:grid-cols-3 gap-2 text-sm md:mb-2">
                       {/* check in */}
-                      <div className="flex gap-1 mb-1">
+                      <div className="flex gap-1 mb-1 text-[#495057] dark:text-gray-400 ">
                         <GoCalendar className="w-5 h-5" />
-                        <span className="text-[#495057] font-thin ">
-                          Check-In Date:
-                        </span>
+                        <span className="font-thin ">Check-In Date:</span>
                         <strong className=" "> {checkinDay}</strong>
                       </div>
                       {/* check out */}
-                      <div className="flex gap-1 mb-1">
+                      <div className="flex gap-1 mb-1 text-[#495057] dark:text-gray-400">
                         <GoCalendar className="w-5 h-5" />
                         Check-Out Date:
                         <strong className=" "> {checkoutDay}</strong>
@@ -137,9 +138,9 @@ const Completed = () => {
                         {cart.title}
                       </span>
                       <div className="flex justify-between text-sm mb-1">
-                        <span className="text-[#495057] font-light  ">
+                        <span className="text-[#495057] dark:text-gray-200  font-light  ">
                           Quantity:{" "}
-                          <strong className="font-semibold">1 Room</strong>
+                          <strong className="font-semibold text-[#b18c57]">1 Room</strong>
                         </span>
                         <span className="text-[#b18c57]">
                           <small>US$</small>{" "}
@@ -168,37 +169,32 @@ const Completed = () => {
               </div>
 
               <div className="mt-5">
-                <div className="  border-solid border border-gray-200  px-8 bg-[#f8f9fA]">
+                <div className="border-solid border border-gray-200  px-8 bg-[#f8f9fA]">
                   <h3 className="py-5 text-2xl tracking-wide ">
                     Customer Information
                   </h3>
                 </div>
                 <div className="px-8 border-solid border border-gray-200 pt-5  mb-5 text-xs">
                   <p className="mb-2 text-base">
-                    Full Name: <strong>Mr. Jonh Deep</strong>
-                  </p>
-                  <p className="mb-2 text-base">
-                    Email: <strong>booking@example.com</strong>
-                  </p>
-                  <p className="mb-2 text-base">
-                    Phone: <strong>+33 (0) 1 89 78 67 56</strong>
-                  </p>
-                  <p className="mb-2 text-base">
-                    Address:{" "}
+                    Full Name:{" "}
                     <strong>
-                      No 2201 rue des Petites Ecuries, 75010 Paris, France
+                      {customerinfo.title} {customerinfo.name}
                     </strong>
                   </p>
                   <p className="mb-2 text-base">
-                    Country: <strong>France</strong>
+                    Email: <strong>{customerinfo.email}</strong>
                   </p>
                   <p className="mb-2 text-base">
-                    Your Requests:{" "}
-                    <strong>
-                      Lorem ipsum dolor sit amet, nam lorem etiam ad, ex nusquam
-                      luptatum vel, te eum numquam luptatum. Id sint ullum
-                      offendit eam, duo iisque quaerendum deterruisset ne.
-                    </strong>
+                    Phone: <strong>{customerinfo.phone}</strong>
+                  </p>
+                  <p className="mb-2 text-base">
+                    Address: <strong>{customerinfo.address}</strong>
+                  </p>
+                  <p className="mb-2 text-base">
+                    Country: <strong>{customerinfo.country}</strong>
+                  </p>
+                  <p className="mb-2 text-base">
+                    Your Requests: <strong>{customerinfo.request}</strong>
                   </p>
                 </div>
               </div>
