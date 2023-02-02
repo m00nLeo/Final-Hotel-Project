@@ -190,7 +190,6 @@ const useProductDetail = (productId) => {
 };
 
 const RoomInformation = () => {
-  const [cart, setCart] = useState([]);
   const { productId } = useParams();
   const { data, isLoading } = useProductDetail(productId);
 
